@@ -1,0 +1,29 @@
+@import "../bootstrap/functions";
+@import "../bootstrap/variables";
+
+@import "variables";
+
+main {
+    min-height: calc(100vh - (50px + 20px) - 20px);
+    padding: 10px 0px;
+}
+
+@import "landing";
+
+@import "homeuser";
+
+@import "footer";
+
+@import "modals";
+
+@import "errors";
+
+::selection,
+::-moz-selection {
+    color: $selection-color;
+    background: $selection-background;
+}
+
+.swal-overlay--show-modal {
+    overflow: auto;
+}

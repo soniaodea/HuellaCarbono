@@ -1,0 +1,80 @@
+.modal-content {
+  border-radius: 0 !important;
+}
+
+// login and register modals align vertically
+#registerModal.modal,
+#loginModal.modal {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+#registerModal.modal::before,
+#loginModal.modal::before {
+  content: " ";
+  display: inline-block;
+  vertical-align: middle;
+  height: 50vw;
+  text-align: center;
+}
+
+#loginModal .modal-dialog,
+#registerModal .modal-dialog {
+  text-align: left;
+  position: static;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#loginModal .modal-dialog {
+  width: 420px;
+}
+
+#registerModal .modal-dialog {
+  width: 700px;
+}
+
+//addBuilding & editBuilding modals button margin top
+.topp{
+    margin-top: 20px;
+  }
+
+
+///////media query//////////
+
+@media (max-width: 480px) {
+
+  #loginModal .modal-dialog{
+    width:300px;
+  }
+
+  #registerModal .modal-dialog{
+    width:300px;
+  }
+
+  .modal-content{
+    width:300px;
+  }
+
+
+}
+
+@media (max-width: 579px) and (min-width: 481px) {
+
+  #loginModal .modal-dialog{
+    width:400px;
+  }
+
+  #registerModal .modal-dialog{
+    width:400px;
+  }
+
+  .modal-content{
+    width:400px;
+  }
+
+
+}

@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css?family=Play");
+@import url('https://fonts.googleapis.com/css?family=Unica+One');
+
+header {
+    background-image: url("../img/header.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    #superpuesto {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        height: 0px;
+        padding-bottom: 56.25%;
+        //background-color: rgba(0, 0, 0, 0.2);
+
+        &:before {
+            content: " ";
+            display: inline-block;
+            vertical-align: middle;
+            height: 50vw;
+
+            @media screen and (max-width: 618px) {
+                height: 12.5vw;
+
+            }
+        }
+
+        @media screen and (max-width: 535px) {
+            display: none;
+        }
+    }
+
+    .vertical-aligned {
+        text-align: center;
+        position: static;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.headerText{
+  font-size: 100px;
+  color: #fff;
+  font-family: 'Unica One', sans-serif;
+  text-shadow: 0px 0px 10px black;
+
+  @media screen and (max-width: 772px) {
+      font-size: 80px;
+  }
+}
+
+a.botonHeader{
+  height: 200px;
+  width: 100px;
+  text-decoration: none;
+  cursor: pointer;
+  
+  &::before{
+    color: $primary;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    position: relative;
+    animation-iteration-count: infinite;
+
+    @media screen and (max-width: 613px) {
+        animation: none;
+    }
+  }
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  0%   {color: rgba(45, 225, 27, 0.21); left:0px; top:0px;}
+  25%  {color: #3af0b6; left:0px; top:50px;}
+  50%  {color: #38e4ac; left:200px; top:100px;}
+  75%  {color: #2eca6c; left:0px; top:150px;}
+  100% {color: #2dcb6d; left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+  0%   {color: rgba(45, 225, 27, 0.2); left:0px; top:0px;}
+  25%  {color: #3af0b6; left:0px; top:50px;}
+  50%  {color: #38e4ac; left:0px; top:100px;}
+  75%  {color: #2eca6c; left:0px; top:150px;}
+  100% {color: #38e4ac; left:0px; top:0px;}
+}
+
+.whiteScroll{
+  color: white;
+}
+
+#queEs,
+#comoFunciona,
+#contacto,
+#centrosInvolucrados {
+  min-height: $window-height;
+  padding-top: $navbar-height *1.25;
+  padding-bottom: $navbar-height /2;
+  bottom: 15px;
+
+  /* en moviles se ve muy peque con las media */
+  @media only screen and (max-width: 375px) {
+      // font-size: 10px;
+      // line-height: 20px;
+      // padding: 15px;
+  }
+
+  @media only screen and (min-width: 376px) and (max-width: 600px) {
+      // font-size: 12px;
+      // line-height: 23px;
+      // padding: 15px;
+  }
+}
+
+#queEs {
+  background-color: rgba(167, 222, 55, 0.44);
+}
+
+#queEs p{
+  margin-top: 20px;
+}
+
+#comoFunciona,
+#centrosInvolucrados {
+    min-height: 50vh;
+}
+
+#centrosInvolucrados {
+    // min-height: auto;
+    padding-bottom: 0px;
+
+    .container{
+      margin-bottom: 40px;
+    }
+
+    #map {
+        min-height: 50vh;
+
+        .fa-map-marker::before {
+            text-shadow:
+            -1px 1px black,
+            -0px 1px black,
+            1px 1px black,
+            -1px 0px black,
+            -0px 0px black,
+            1px 0px black,
+            -1px -1px black,
+            -0px -1px black,
+            1px -1px black;
+        }
+
+        #buildings {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            z-index: 10;
+            background: $primary;
+            width: 20%;
+            max-width: 200px;
+            box-shadow: -1px 0px 4px black;
+            overflow-y: auto;
+
+            .building {
+                cursor: pointer;
+
+                i.fa {
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+}
+
+
+#contacto {
+  color: #fff;
+  background-image: linear-gradient(to bottom, rgba(45, 225, 27, 0.2) 0%, rgba(162, 94, 0, 0.5) 100%), url("../img/header-1.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}

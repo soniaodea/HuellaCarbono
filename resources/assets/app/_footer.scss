@@ -1,0 +1,49 @@
+footer {
+    width:100%;
+    min-height: 200px;
+    background-color: #A0DBB3;
+    //background-color: white;
+    color: #7A5635;
+    padding-top: 30px;
+
+    #imagenfooter {
+        width: 80px;
+        height: 80px;
+        background-image: url('../img/pawprint.png');
+        background-size: cover;
+        display: block;
+        margin: auto;
+    }
+
+    #textofooter {
+        margin-top: 10px;
+        font-size: 16px;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+
+    footer {
+        min-height: 50px;
+    }
+
+    footer p {
+        line-height: 50px;
+        margin:0 auto;
+    }
+
+}
+
+@media only screen and (min-width: 376px) and (max-width: 600px) {
+    footer {
+        min-height: 80px;
+    }
+
+    footer p {
+        line-height: 50px;
+        margin-left: 50px;
+    }
+}

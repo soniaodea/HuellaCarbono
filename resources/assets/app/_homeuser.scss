@@ -1,0 +1,217 @@
+#alcances {
+    min-height: $window-height;
+    margin-top: -20px;
+}
+
+#alcances-tabs, #alcances-content {
+    text-align: left;
+    margin-bottom: 40px;
+}
+.alcance {
+    margin-bottom: 50px;
+}
+
+#userContent {
+    width:100%;
+}
+
+@mixin FontAwesome($code) {
+    font-family: FontAwesome;
+    content: $code;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.nav-side-menu,
+.bottom {
+    width: 200px;
+}
+
+.nav-side-menu {
+    overflow: auto;
+    font-size: 14px;
+    font-weight: 200;
+    background-color: #2e353d;
+    position: fixed;
+    left: 0;
+    top: 55px;
+    height: 100%;
+    color: #e1ffff;
+    z-index: 10;
+
+    @media (min-width: 1366px) {
+        width: 15%;
+
+        .bottom {
+            width: 15%;
+        }
+    }
+
+    .brand {
+        background-color: #23282e;
+        line-height: 50px;
+        display: block;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .menu-list .menu-content {
+        display: block;
+    }
+
+    .bottom {
+        position: fixed;
+        bottom: 0px;
+
+        li {
+            border-top: 1px solid #23282e;
+            border-bottom: none;
+        }
+    }
+
+    ul,
+    li {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        line-height: 40px;
+        cursor: pointer;
+
+        .arrow::before {
+            @include FontAwesome("\f078");
+            float: right;
+        }
+
+        .collapsed {
+            .arrow::before {
+                @include FontAwesome("\f054");
+                float:right;
+            }
+        }
+
+        .active {
+            border-left: 3px solid $link-color;
+            background-color: #4f5b69;
+        }
+
+        .sub-menu li.active,
+        .sub-menu li.active {
+            color: $link-color;
+
+            a {
+                color: $link-color;
+            }
+        }
+    }
+
+    ul .sub-menu li,
+    li .sub-menu li {
+        background-color: #181c20;
+        border: none;
+        line-height: 40px;
+        border-bottom: 1px solid #23282e;
+        margin-left: 0px;
+
+        :hover {
+            background-color: #020203;
+        }
+
+        &::before {
+            @include FontAwesome("\f105");
+        }
+    }
+
+    li {
+        padding-left: 0px;
+        border-left: 3px solid #2e353d;
+        border-bottom: 1px solid #23282e;
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: #e1ffff;
+
+            i {
+                padding-left: 10px;
+                width: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        :hover {
+            border-left: 3px solid $link-color;
+            background-color: #4f5b69;
+            transition: all 1s ease;
+
+        }
+    }
+}
+
+@media (max-width: 480px) {
+
+    .topForMobile{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .topButtonProfile{
+        margin-top: 20px;
+    }
+    .topButtonProfilePass{
+        margin-top: 10px;
+        margin-left: -10px;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (max-width: 720px) {
+    .toggle-btn {
+        display: inline-block;
+        margin: 0px 10px;
+    }
+
+    .nav-side-menu,
+    .bottom {
+        min-width: 50%;
+        max-width: 250px;
+        transition: left 1s;
+    }
+
+    .nav-side-menu {
+        left: -50%;
+    }
+
+    .nav-side-menu.open {
+        left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-side-menu,
+    .bottom {
+        min-width: 75%;
+        max-width: 250px;
+    }
+
+    .nav-side-menu {
+        left: -75%;
+    }
+}
+
+@media (min-width: 721px) {
+    main > #userContent {
+        width: $userhome-width;
+        float: right;
+    }
+
+    .toggle-btn {
+        display: none;
+    }
+
+    [data-action="close-nav"] {
+        display: none;
+    }
+}
