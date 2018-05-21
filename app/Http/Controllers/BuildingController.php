@@ -35,11 +35,11 @@ class BuildingController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:35',
-            'description' => 'nullable|string',
+            //'description' => 'nullable|string',
             'country_id' => 'required|exists:countries,id',
             'region_id' => 'required|exists:regions,id',
-            'postcode' => 'required|numeric|max:99999',
-            'address' => 'required|string',
+            //'postcode' => 'required|numeric|max:99999',
+            //'address' => 'required|string',
         ]);
     }
 
@@ -76,11 +76,11 @@ class BuildingController extends Controller
         $building = Building::create([
             'user_id' => Auth::id(),
             'name' => $request->name,
-            'description' => $request->description,
+            //'description' => $request->description,
             'country_id' => $request->country_id,
             'region_id' => $request->region_id,
-            'postcode' => $request->postcode,
-            'address_with_number' => $request->address,
+            //'postcode' => $request->postcode,
+            //'address_with_number' => $request->address,
         ]);
 
         if ($request->input('latitude')) {

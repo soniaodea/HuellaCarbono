@@ -13,11 +13,8 @@
                     <tr class="text-center">
                         <td class="d-none">#</td>
                         <td>Nombre</td>
-                        <td class="d-none">Descripción</td>
                         <td class="d-none">País</td>
                         <td>Provincia</td>
-                        <td class="d-none">CP <i class="fa fa-info" title="Código postal"></i></td>
-                        <td>Dirección</td>
                         <td class="d-none">Coordenadas (lat, lon)</td>
                         <td>Acciones</td>
                     </tr>
@@ -38,11 +35,8 @@
                                 @endif
                                 {{ $building->name }}
                             </td>
-                            <td class="description d-none">{{ ($building->description) ? $building->description : "-" }}</td>
                             <td class="country d-none" data-id="{{ $building->country_id }}">{{ $building->country->name }}</td>
                             <td class="region" data-id="{{ $building->region_id }}">{{ $building->region->name }}</td>
-                            <td class="postcode d-none">{{ $building->postcode }}</td>
-                            <td class="address">{{ $building->address_with_number }}</td>
                             <td class="coordinates d-none" data-latitude="{{ $building->latitude}}" data-longitude="{{ $building->longitude }}"></td>
                             <td>
                                 <div class="btn-group">

@@ -42,7 +42,7 @@ function editBuilding() {
 
     document.getElementById("id").value = row.getElementsByClassName("id")[0].innerText;
     document.getElementById("name").value = row.getElementsByClassName("name")[0].innerText;
-    document.getElementById("description").value = row.getElementsByClassName("description")[0].innerText;
+    //document.getElementById("description").value = row.getElementsByClassName("description")[0].innerText;
     let country = document.getElementById("country_id").options;
     let countryId = row.getElementsByClassName("country")[0].getAttribute("data-id");
     for (let i = 0; i < country.length; i++) {
@@ -59,8 +59,8 @@ function editBuilding() {
             break;
         }
     }
-    document.getElementById("postcode").value = row.getElementsByClassName("postcode")[0].innerText;
-    document.getElementById("address").value = row.getElementsByClassName("address")[0].innerText;
+    //document.getElementById("postcode").value = row.getElementsByClassName("postcode")[0].innerText;
+    //document.getElementById("address").value = row.getElementsByClassName("address")[0].innerText;
     let coordinates = row.getElementsByClassName("coordinates")[0];
     document.getElementById("editLatitude").value = null;
     document.getElementById("editLongitude").value = null;
