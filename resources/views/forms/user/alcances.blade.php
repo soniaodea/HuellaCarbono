@@ -158,22 +158,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="a3_factor_kwh_nm3" class="col-form-label col-sm-4">Factor</label>
-                <div class="col-sm-8">
-                    <div class="input-group">
-                        <input {!! $study->carbon_footprint ? "readonly" : "id=\"a3_factor_kwh_nm3\" name=\"a3_factor_kwh_nm3\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a3_factor_kwh_nm3') ? ' is-invalid' : '' }}" value="{{ $study->a3_factor_kwh_nm3 ? $study->a3_factor_kwh_nm3 : old("a3_factor_kwh_nm3")}}">
-                        <div class="input-group-append">
-                            <span class="input-group-text">kWh/Nm<sup>3</sup></span>
-                        </div>
-                        @if ($errors->has('a3_factor_kwh_nm3'))
-                        <div class="invalid-feedback">
-                            <strong>{{ $errors->first('a3_factor_kwh_nm3') }}</strong>
-                        </div>
-                        @endif
-                    </div>
-                </div>
-            </div>
+
         </div>
         @if (!$study->carbon_footprint)
             <input type="hidden" name="building_id" value="{{ $id }}">

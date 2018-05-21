@@ -40,14 +40,14 @@ class StudiesController extends Controller
              'year' => $request->year,
          ], [
              'a1_gas_natural_kwh' => $request->a1_gas_natural_kwh,
-             'a1_gas_natural_nm3' => $request->a1_gas_natural_nm3,
+             'a1_gas_natural_nm3' => 0,
              'a1_refrigerantes' => $request->a1_refrigerantes,
              'a1_recarga_gases_refrigerantes' => $request->a1_recarga_gases_refrigerantes,
              'a2_electricidad_kwh' => $request->a2_electricidad_kwh,
              'a3_agua_potable_m3' => $request->a3_agua_potable_m3,
              'a3_papel_carton_consumo_kg' => $request->a3_papel_carton_consumo_kg,
              'a3_papel_carton_residuos_kg' => $request->a3_papel_carton_residuos_kg,
-             'a3_factor_kwh_nm3' => $request->a3_factor_kwh_nm3,
+             'a3_factor_kwh_nm3' => 4,
          ]);
         if ('calculateStudy' == $request->input('submit')) {
             $this->calculateStudy($alcances);
@@ -69,14 +69,14 @@ class StudiesController extends Controller
                  'max:'.date('Y'),
              ],
              'a1_gas_natural_kwh' => 'required|numeric',
-             'a1_gas_natural_nm3' => 'required|numeric',
+             //'a1_gas_natural_nm3' => 'required|numeric',
              'a1_refrigerantes' => 'required|numeric',
              'a1_recarga_gases_refrigerantes' => 'required|numeric',
              'a2_electricidad_kwh' => 'required|numeric',
              'a3_agua_potable_m3' => 'required|numeric',
              'a3_papel_carton_consumo_kg' => 'required|numeric',
              'a3_papel_carton_residuos_kg' => 'required|numeric',
-             'a3_factor_kwh_nm3' => 'required|numeric',
+            // 'a3_factor_kwh_nm3' => 'required|numeric',
          ]);
         // validate year field (create)
         $validator->sometimes('year', Rule::unique('studies')->where('building_id', $data['building_id']), function ($input) {
