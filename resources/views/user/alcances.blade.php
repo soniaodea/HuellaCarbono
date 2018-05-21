@@ -49,7 +49,7 @@
                     </div>
                     @else
                     <div class="alert alert-info">
-                        <strong><i class="fa fa-paw"></i></strong> Valor de la huella, {{ $study->carbon_footprint }}
+                        <strong><i class="fa fa-paw"></i></strong> Valor de la huella, {{ $study->carbon_footprint }} tCO<sub>2</sub>e
                     </div>
                     @endif
 

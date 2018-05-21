@@ -45,17 +45,18 @@
                 </div>
             </div>
 
+
             <div class="form-group row">
-                <label for="a1_gas_natural_nm3" class="col-form-label col-sm-4">Gas natural</label>
+                <label for="a1_refrigerantes" class="col-form-label col-sm-4">Refrigerantes</label>
                 <div class="col-sm-8">
                     <div class="input-group">
-                        <input {!! $study->carbon_footprint ? "readonly" : "id=\"a1_gas_natural_nm3\" name=\"a1_gas_natural_nm3\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_gas_natural_nm3') ? ' is-invalid' : '' }}" value="{{ $study->a1_gas_natural_nm3 ? $study->a1_gas_natural_nm3 : old("a1_gas_natural_nm3") }}">
+                        <input {!! $study->carbon_footprint ? "readonly" : "id=\"a1_refrigerantes\" name=\"a1_refrigerantes\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_refrigerantes') ? ' is-invalid' : '' }}" value="{{ $study->a1_refrigerantes ? $study->a1_refrigerantes : old("a1_refrigerantes")}}">
                         <div class="input-group-append">
-                            <span class="input-group-text">Nm<sup>3</sup></span>
+                            <span class="input-group-text">kg</span>
                         </div>
-                        @if ($errors->has('a1_gas_natural_nm3'))
+                        @if ($errors->has('a1_refrigerantes'))
                         <div class="invalid-feedback">
-                            <strong>{{ $errors->first('a1_gas_natural_nm3') }}</strong>
+                            <strong>{{ $errors->first('a1_refrigerantes') }}</strong>
                         </div>
                         @endif
                     </div>
@@ -63,26 +64,19 @@
             </div>
 
             <div class="form-group row">
-                <label for="a1_refrigerantes" class="col-form-label col-sm-4">Refrigerantes</label>
-                <div class="col-sm-8">
-                    <input {!! $study->carbon_footprint ? "readonly" : "id=\"a1_refrigerantes\" name=\"a1_refrigerantes\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_refrigerantes') ? ' is-invalid' : '' }}" value="{{ $study->a1_refrigerantes ? $study->a1_refrigerantes : old("a1_refrigerantes")}}">
-                    @if ($errors->has('a1_refrigerantes'))
-                    <div class="invalid-feedback">
-                        <strong>{{ $errors->first('a1_refrigerantes') }}</strong>
-                    </div>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group row">
                 <label for="a1_recarga_gases_refrigerantes" class="col-form-label col-sm-4">Recarga gases refrigerantes</label>
                 <div class="col-sm-8">
-                    <input {!! $study->carbon_footprint ? "readonly" : "id=\"a1_recarga_gases_refrigerantes\" name=\"a1_recarga_gases_refrigerantes\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_recarga_gases_refrigerantes') ? ' is-invalid' : '' }}" value="{{ $study->a1_recarga_gases_refrigerantes ? $study->a1_recarga_gases_refrigerantes : old("a1_recarga_gases_refrigerantes")}}">
-                    @if ($errors->has('a1_recarga_gases_refrigerantes'))
-                    <div class="invalid-feedback">
-                        <strong>{{ $errors->first('a1_recarga_gases_refrigerantes') }}</strong>
+                    <div class="input-group">
+                        <input {!! $study->carbon_footprint ? "readonly" : "id=\"a1_recarga_gases_refrigerantes\" name=\"a1_recarga_gases_refrigerantes\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_recarga_gases_refrigerantes') ? ' is-invalid' : '' }}" value="{{ $study->a1_recarga_gases_refrigerantes ? $study->a1_recarga_gases_refrigerantes : old("a1_recarga_gases_refrigerantes")}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">kg</span>
+                        </div>
+                        @if ($errors->has('a1_recarga_gases_refrigerantes'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('a1_recarga_gases_refrigerantes') }}</strong>
+                        </div>
+                        @endif
                     </div>
-                    @endif
                 </div>
             </div>
         </div>
