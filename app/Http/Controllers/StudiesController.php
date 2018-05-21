@@ -73,9 +73,9 @@ class StudiesController extends Controller
              'a1_refrigerantes' => 'required|numeric',
              'a1_recarga_gases_refrigerantes' => 'required|numeric',
              'a2_electricidad_kwh' => 'required|numeric',
-             'a3_agua_potable_m3' => 'required|numeric',
-             'a3_papel_carton_consumo_kg' => 'required|numeric',
-             'a3_papel_carton_residuos_kg' => 'required|numeric',
+             'a3_agua_potable_m3' => 'nullable|numeric',
+             'a3_papel_carton_consumo_kg' => 'nullable|numeric',
+             'a3_papel_carton_residuos_kg' => 'nullable|numeric',
             // 'a3_factor_kwh_nm3' => 'required|numeric',
          ]);
         // validate year field (create)
