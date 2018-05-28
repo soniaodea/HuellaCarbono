@@ -70,7 +70,7 @@
             };
 
             let buildingsChart = new Chart(ctx, {
-                type: 'line',
+                type: 'bar',
                 data: data,
                 options: {
                     scales: {
