@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-
+{{-- Por Sonia: Eliminado campo "Alcance1: Refrigerantes"
             <div class="form-group row">
                 <label for="a1_refrigerantes" class="col-form-label col-sm-4">Refrigerantes</label>
                 <div class="col-sm-8">
@@ -62,9 +62,44 @@
                     </div>
                 </div>
             </div>
+--}}
+{{--Añadido por Sonia-> --}}
+            <div class="form-group row">
+                <label for="a1_gasoleoc" class="col-form-label col-sm-4">GasoleoC</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input type="number" required {!! $study->carbon_footprint ? "readonly" : "id=\"a1_gasoleoc\" name=\"a1_gasoleoc\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_gasoleoc') ? ' is-invalid' : '' }}" value="{{ $study->a1_gasoleoc ? $study->a1_gasoleoc : old("a1_gasoleoc")}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">l</span>
+                        </div>
+                        @if ($errors->has('a1_gasoleoc'))
+                            <div class="invalid-feedback">
+                                <strong>{{ $errors->first('a1_gasoleoc') }}</strong>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="a1_fueloleo" class="col-form-label col-sm-4">Fueloleo</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input type="number" required {!! $study->carbon_footprint ? "readonly" : "id=\"a1_fueloleo\" name=\"a1_fueloleo\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_fueloleo') ? ' is-invalid' : '' }}" value="{{ $study->a1_fueloleo ? $study->a1_fueloleo : old("a1_fueloleo")}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">l</span>
+                        </div>
+                        @if ($errors->has('a1_fueloleo'))
+                            <div class="invalid-feedback">
+                                <strong>{{ $errors->first('a1_fueloleo') }}</strong>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+{{-- <- --}}
 
             <div class="form-group row">
-                <label for="a1_recarga_gases_refrigerantes" class="col-form-label col-sm-4">Recarga gases refrigerantes</label>
+                <label for="a1_recarga_gases_refrigerantes" class="col-form-label col-sm-4">Recarga aire acondicionado</label>
                 <div class="col-sm-8">
                     <div class="input-group">
                         <input type="number" required {!! $study->carbon_footprint ? "readonly" : "id=\"a1_recarga_gases_refrigerantes\" name=\"a1_recarga_gases_refrigerantes\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_recarga_gases_refrigerantes') ? ' is-invalid' : '' }}" value="{{ $study->a1_recarga_gases_refrigerantes ? $study->a1_recarga_gases_refrigerantes : old("a1_recarga_gases_refrigerantes")}}">

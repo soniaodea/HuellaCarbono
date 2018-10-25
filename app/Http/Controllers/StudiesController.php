@@ -40,14 +40,17 @@ class StudiesController extends Controller
              'year' => $request->year,
          ], [
              'a1_gas_natural_kwh' => $request->a1_gas_natural_kwh,
-             'a1_gas_natural_nm3' => 0,
-             'a1_refrigerantes' => $request->a1_refrigerantes,
-             'a1_recarga_gases_refrigerantes' => $request->a1_recarga_gases_refrigerantes,
+             //Realizamos la conversión de kwh a nm3 (a 1nm3 le corresponde 11.7kwh) para aplicar posteriormente a nm3 el factor en el cálculo de la huella
+             'a1_gas_natural_nm3' => ($request->a1_gas_natural_kwh/11.7),
+             //'a1_refrigerantes' => $request->a1_refrigerantes,
+             'a1_gasoleoc' => $request->a1_gasoleoc,
+             'a1_fueloleo' => $request->a1_fueloleo,
+             'a1_recarga_gases_refrigerantes' => $request->a1_recarga_gases_refrigerantes, //TODO Sonia: Cambiar nombre a recarga aire acondicionado
              'a2_electricidad_kwh' => $request->a2_electricidad_kwh,
              'a3_agua_potable_m3' => $request->a3_agua_potable_m3,
              'a3_papel_carton_consumo_kg' => $request->a3_papel_carton_consumo_kg,
              'a3_papel_carton_residuos_kg' => $request->a3_papel_carton_residuos_kg,
-             'a3_factor_kwh_nm3' => 4,
+             //'a3_factor_kwh_nm3' => 4,
          ]);
         if ('calculateStudy' == $request->input('submit')) {
             $this->calculateStudy($alcances);
@@ -70,7 +73,9 @@ class StudiesController extends Controller
              ],
              'a1_gas_natural_kwh' => 'required|numeric',
              //'a1_gas_natural_nm3' => 'required|numeric',
-             'a1_refrigerantes' => 'required|numeric',
+             //'a1_refrigerantes' => 'required|numeric',
+             'a1_gasoleoc' => 'required|numeric',
+             'a1_fueloleo' => 'required|numeric',
              'a1_recarga_gases_refrigerantes' => 'required|numeric',
              'a2_electricidad_kwh' => 'required|numeric',
              'a3_agua_potable_m3' => 'nullable|numeric',
@@ -96,15 +101,17 @@ class StudiesController extends Controller
     public function calculateStudy(Study $study)
     {
         $formula =
-            $study->a1_gas_natural_kwh
-            + $study->a1_gas_natural_nm3
-            + $study->a1_refrigerantes
+            //$study->a1_gas_natural_kwh +
+            (($study->a1_gas_natural_nm3 * 210) / 100000)
+            //+ $study->a1_refrigerantes
+            + (($study->a1_gasoleoc * 285) / 100000)
+            + (($study->a1_fueloleo * 239) / 100000)
             + $study->a1_recarga_gases_refrigerantes
-            + $study->a2_electricidad_kwh
+            + (($study->a2_electricidad_kwh * 36) /100000)
             + $study->a3_agua_potable_m3
             + $study->a3_papel_carton_consumo_kg
-            + $study->a3_papel_carton_residuos_kg
-            + $study->a3_factor_kwh_nm3;
+            + $study->a3_papel_carton_residuos_kg;
+            //+ $study->a3_factor_kwh_nm3;
         $study->carbon_footprint = $formula;
         $study->save();
     }
