@@ -76,7 +76,8 @@ $(function () {
 
     function validationPassed(formId) {
         if (formId === "loginForm") {
-            location.reload();
+            //location.reload();
+            window.location.href = 'building';
 
         } else if (formId == "registerForm") {
             $("#registerModal").modal("hide");
