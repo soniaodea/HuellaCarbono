@@ -108,9 +108,9 @@ class StudiesController extends Controller
             + (($study->a1_fueloleo * 239) / 100000)
             + $study->a1_recarga_gases_refrigerantes
             + (($study->a2_electricidad_kwh * 36) /100000)
-            + $study->a3_agua_potable_m3
-            + $study->a3_papel_carton_consumo_kg
-            + $study->a3_papel_carton_residuos_kg;
+            + (($study->a3_agua_potable_m3 * 344) /100000)
+            + (($study->a3_papel_carton_consumo_kg))
+            + (($study->a3_papel_carton_residuos_kg * 21) /100000);
             //+ $study->a3_factor_kwh_nm3;
         $study->carbon_footprint = $formula;
         $study->save();
