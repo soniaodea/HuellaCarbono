@@ -17,6 +17,7 @@ class CreateBuildingsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
             $table->text('description')->nullable();
+            $table->integer('surface')->unsigned();
             $table->integer('country_id')->unsigned();
             $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('region_id')->unsigned();

@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     addRemoveEvent();
     addEditEvent();
@@ -41,7 +42,12 @@ function editBuilding() {
     }
 
     document.getElementById("id").value = row.getElementsByClassName("id")[0].innerText;
+
     document.getElementById("name").value = row.getElementsByClassName("name")[0].innerText;
+
+
+    document.getElementById("surface").value = row.getElementsByClassName("surface")[0].innerText;
+
     //document.getElementById("description").value = row.getElementsByClassName("description")[0].innerText;
     let country = document.getElementById("country_id").options;
     let countryId = row.getElementsByClassName("country")[0].getAttribute("data-id");

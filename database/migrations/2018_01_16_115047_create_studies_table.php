@@ -29,6 +29,7 @@ class CreateStudiesTable extends Migration
             $table->string('a3_papel_carton_consumo_kg')->nullable();
             $table->string('a3_papel_carton_residuos_kg')->nullable();
             //$table->string('a3_factor_kwh_nm3')->nullable();
+            $table->integer('a3_combustible_automovil')->nullable();
             $table->timestamps();
         });
     }

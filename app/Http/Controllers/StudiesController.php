@@ -111,8 +111,9 @@ class StudiesController extends Controller
             + (($study->a3_agua_potable_m3 * 344) /100000)
             + (($study->a3_papel_carton_consumo_kg))
             + (($study->a3_papel_carton_residuos_kg * 21) /100000);
-            //+ $study->a3_factor_kwh_nm3;
-        $study->carbon_footprint = $formula;
+            + (($study->a3_papel_carton_residuos_kg * 20) /100000);
+        //+ $study->a3_factor_kwh_nm3;
+        $study->carbon_footprint = round($formula,2);
         $study->save();
     }
 }

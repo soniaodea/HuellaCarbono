@@ -1,6 +1,7 @@
 <form action="{{ route("building.edit") }}" method="post" novalidate>
     {{ csrf_field() }}
     <input type="hidden" name="id" id="id">
+
     <div class="form-group">
         <input type="text" name="name" id="name" class="form-control{{ $errors->has("name") ? " is-invalid" : "" }}" autofocus value="{{ old("name") }}" placeholder="Nombre del edificio">
         @if ($errors->has('name'))
@@ -10,6 +11,19 @@
         @endif
     </div>
 
+    <div class="form-grou">
+        <div class="input-group">
+            <input type="number" name="surface" id="surface" class="form-control{{ $errors->has("surface") ? " is-invalid" : "" }}" autofocus value="{{ old("surface") }}" placeholder="Superficie del edificio">
+            <div class="input-group-append">
+                <span class="input-group-text">m2</span>
+            </div>
+            @if ($errors->has('surface'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('surface') }}</strong>
+                </div>
+            @endif
+        </div>
+    </div>
 
 
     <div class="form-group">

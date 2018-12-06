@@ -13,6 +13,7 @@
                     <tr class="text-center">
                         <td class="d-none">#</td>
                         <td>Nombre</td>
+                        <td>Superficie(m2)</td>
                         <td class="d-none">País</td>
                         <td>Provincia</td>
                         <td class="d-none">Coordenadas (lat, lon)</td>
@@ -35,6 +36,7 @@
                                 @endif
                                 {{ $building->name }}
                             </td>
+                            <td class="surface" data-id="{{ $building->surface }}">{{ $building->surface }}</td>
                             <td class="country d-none" data-id="{{ $building->country_id }}">{{ $building->country->name }}</td>
                             <td class="region" data-id="{{ $building->region_id }}">{{ $building->region->name }}</td>
                             <td class="coordinates d-none" data-latitude="{{ $building->latitude}}" data-longitude="{{ $building->longitude }}"></td>

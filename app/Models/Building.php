@@ -10,6 +10,7 @@ class Building extends Model
     protected $fillable = [
         'name',
         'description',
+        'surface',
         'user_id',
         'country_id',
         'region_id',

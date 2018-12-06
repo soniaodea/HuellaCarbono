@@ -21,6 +21,7 @@ class Study extends Model
         'a3_agua_potable_m3',
         'a3_papel_carton_consumo_kg',
         'a3_papel_carton_residuos_kg',
+        'a3_combustionMovil',
         //'a3_factor_kwh_nm3',
     ];
 

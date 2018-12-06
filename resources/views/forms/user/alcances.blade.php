@@ -193,6 +193,22 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="a3_combustionMovil" class="col-form-label col-sm-4">Combustión móvil</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input type="number" {!! $study->carbon_footprint ? "readonly" : "id=\"a3_combustionMovil\" name=\"a3_combustionMovil\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a3_combustible_automovil') ? ' is-invalid' : '' }}" value="{{ $study->a3_combustible_automovil ? $study->a3_combustible_automovil : old("a3_combustionMovil")}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text">kilómetros recorridos</span>
+                        </div>
+                        @if ($errors->has('a3_combustionMovil'))
+                            <div class="invalid-feedback">
+                                <strong>{{ $errors->first('a3_combustionMovil') }}</strong>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
 
         </div>
         @if (!$study->carbon_footprint)

@@ -35,6 +35,8 @@ class BuildingController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:35',
+            //'surface' => 'required|numeric|max:10000',
+            'surface' => 'nullable|numeric|max:10000',
             //'description' => 'nullable|string',
             'country_id' => 'required|exists:countries,id',
             'region_id' => 'required|exists:regions,id',
@@ -76,6 +78,7 @@ class BuildingController extends Controller
         $building = Building::create([
             'user_id' => Auth::id(),
             'name' => $request->name,
+            'surface' => $request->surface,
             //'description' => $request->description,
             'country_id' => $request->country_id,
             'region_id' => $request->region_id,
@@ -105,6 +108,7 @@ class BuildingController extends Controller
         $building = Building::where('id', $request->id)->firstOrFail();
         $building->name = $request->input('name');
         $building->description = $request->input('description');
+        $building->surface = $request->input('surface');
         $building->country_id = $request->input('country_id');
         $building->region_id = $request->input('region_id');
         $building->postcode = $request->input('postcode');

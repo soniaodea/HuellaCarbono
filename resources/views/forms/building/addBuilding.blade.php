@@ -9,6 +9,20 @@
         @endif
     </div>
 
+    <div class="form-group">
+        <div class="input-group">
+            <input type="number" name="surface" class="form-control{{ $errors->has("surface") ? " is-invalid" : "" }}" autofocus value="{{ old("surface") }}" placeholder="Superficie del edificio">
+            <div class="input-group-append">
+                <span class="input-group-text">m2</span>
+            </div>
+            @if ($errors->has('surface'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('surface') }}</strong>
+                </div>
+            @endif
+        </div>
+    </div>
+
 
 
     <div class="form-group">
