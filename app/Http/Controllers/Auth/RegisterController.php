@@ -72,7 +72,8 @@ class RegisterController extends Controller
             'verified' => false,
         ]);
 
-        $user->sendVerifyEmail();
+        //COmentado por Sonia 19-01-14
+        //$user->sendVerifyEmail();
 
         return $user;
     }
