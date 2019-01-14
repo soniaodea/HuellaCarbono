@@ -20,8 +20,7 @@ class RegisterConfirmation extends Mailable
     public function __construct(User $user)
     {
         $this->email = $user->email;
-        //Por Sonia 19-01-2019
-        //$this->confirmLink = $user->email_code;
+        $this->confirmLink = $user->email_code;
     }
 
     /**
@@ -31,8 +30,14 @@ class RegisterConfirmation extends Mailable
      */
     public function build()
     {
+        /*
         return $this->from(config('mail.from.address'))
                 ->subject('Confirmación de registro, '.config('app.name'))
                 ->view('mails.confirmRegistration');
+        */
+        return $this->from('karbonoaztarna@gmail.com')
+            ->subject('Confirmación de registro, ')
+            ->view('Hau proba bat da');
+
     }
 }

@@ -8,7 +8,8 @@
 </head>
 <body>
     <h2>
-        Confirmación de registro, {{ config("app.name") }}
+        {{--Confirmación de registro, {{ config("app.name") }} --}}
+        Confirmacion registro
     </h2>
     <p>
         {{--
