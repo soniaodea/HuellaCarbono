@@ -20,7 +20,8 @@ class RegisterConfirmation extends Mailable
     public function __construct(User $user)
     {
         $this->email = $user->email;
-        $this->confirmLink = $user->email_code;
+        //Por Sonia 19-01-2019
+        //$this->confirmLink = $user->email_code;
     }
 
     /**
