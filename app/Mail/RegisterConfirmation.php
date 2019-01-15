@@ -34,10 +34,6 @@ class RegisterConfirmation extends Mailable
         return $this->from(config('mail.from.address'))
                 ->subject('Confirmación de registro, '.config('app.name'))
                 ->view('mails.confirmRegistration');
-        /*
-        return $this->from('karbonoaztarna@gmail.com')
-            ->subject('Confirmación de registro, ')
-            ->view('Hau proba bat da');
-        */
+
     }
 }
