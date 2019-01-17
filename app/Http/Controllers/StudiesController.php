@@ -29,7 +29,7 @@ class StudiesController extends Controller
 
     public function alcances(Request $request)
     {
-       
+
         $validator = $this::alcancesValidator($request->all());
         if ($validator->fails()) {
             $validator->errors()->add('inputYear', $request->year);
