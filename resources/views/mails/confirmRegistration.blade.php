@@ -12,7 +12,7 @@
     </h2>
     <p>
         {{--Tu dirección de correo {{ $email }} ha sido registrada en nuestra aplicación {{ config("app.url") }}. Pulsa sobre <a href="{{ route( "registerEmailConfirmation",["token" => $confirmLink]) }}">este enlace</a> o copia la siguiente url en tu navegador <a href="{{ route( "registerEmailConfirmation",["token" => $confirmLink]) }}">{{ route( "registerEmailConfirmation",["code" => $confirmLink]) }}</a> para activar tu cuenta.--> --}}
-        Tu dirección de correo {{ $email }} ha sido registrada en nuestra aplicación web Karbono Aztarna. Pulsa sobre <a href="{{ route( "registerEmailConfirmation",["token" => $confirmLink]) }}">este enlace</a> o copia la siguiente url en tu navegador <a href="{{ route( "registerEmailConfirmation",["token" => $confirmLink]) }}">{{ route( "registerEmailConfirmation",["code" => $confirmLink]) }}</a> para activar tu cuenta.-->
+            Tu dirección de correo {{ $email }} ha sido registrada en nuestra aplicación web Karbono Aztarna.     Pulsa sobre <a href="{{ route( "registerEmailConfirmation",["token" => $confirmLink]) }}">este enlace</a> o copia la siguiente url en tu navegador <a href="{{ route( "registerEmailConfirmation",["token" => $confirmLink]) }}">{{ route( "registerEmailConfirmation",["code" => $confirmLink]) }}</a> para activar tu cuenta.
     </p>
 </body>
 </html>

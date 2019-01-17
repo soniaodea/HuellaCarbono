@@ -80,7 +80,7 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $validator = $this::validator($request->all());
-//error_log("RegisterController:Inicio register");
+
         if ($validator->fails()) {
             if ($request->ajax()) {
                 return response()->json(['error' => $validator->errors()->all()]);
@@ -90,16 +90,13 @@ class RegisterController extends Controller
 
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
-//error_log("RegisterController:Crea registro en bd");
 
             $this::create($request->all());
 
         }
-  //      error_log("RegisterController:flash postRegister, emailAddress");
 
         $request->session()->flash('postRegister', true);
         $request->session()->flash('emailAddress', $request->input('email'));
-//error_log("RegisterController:Redirect a landing route");
 
         return redirect(route('landing'));
     }

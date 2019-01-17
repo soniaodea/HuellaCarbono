@@ -29,11 +29,16 @@ class StudiesController extends Controller
 
     public function alcances(Request $request)
     {
+       
         $validator = $this::alcancesValidator($request->all());
         if ($validator->fails()) {
             $validator->errors()->add('inputYear', $request->year);
 
             return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $kmRecorridos = false;
+        if ($request->combustionType == 'kilometros_recorridos') {
+            $kmRecorridos = true;
         }
         $alcances = Study::updateOrCreate([
              'building_id' => $request->building_id,
@@ -50,14 +55,20 @@ class StudiesController extends Controller
              'a3_agua_potable_m3' => $request->a3_agua_potable_m3,
              'a3_papel_carton_consumo_kg' => $request->a3_papel_carton_consumo_kg,
              'a3_papel_carton_residuos_kg' => $request->a3_papel_carton_residuos_kg,
-             //'a3_factor_kwh_nm3' => 4,
+             'a3_combustionMovil' => $request->a3_combustionMovil,
+             'a3_combustionMovilKmRecorridos' => $kmRecorridos,
+            //'a3_factor_kwh_nm3' => 4,
          ]);
-        if ('calculateStudy' == $request->input('submit')) {
-            $this->calculateStudy($alcances);
 
+        $value = $this->calculateStudy($alcances);
+
+        if ('calculateStudy' == $request->input('submit')) {
+            $alcances->carbon_footprint = $value;
+            $alcances->save();
             return redirect(route('alcancesView', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
         }
-
+        $alcances->temporal_footprint = $value;
+        $alcances->save();
         return redirect(route('alcancesCreate', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
     }
 
@@ -98,7 +109,7 @@ class StudiesController extends Controller
     /**
      * Calculo huella.
      */
-    public function calculateStudy(Study $study)
+    protected function calculateStudy(Study $study)
     {
         $formula =
             //$study->a1_gas_natural_kwh +
@@ -111,9 +122,15 @@ class StudiesController extends Controller
             + (($study->a3_agua_potable_m3 * 344) /100000)
             + (($study->a3_papel_carton_consumo_kg))
             + (($study->a3_papel_carton_residuos_kg * 21) /100000);
-            + (($study->a3_papel_carton_residuos_kg * 20) /100000);
+
+        if ($study->a3_combustionMovilKmRecorridos) {
+            $formula += (($study->a3_combustionMovil * 20) /100000);
+        }
+        else { //Litros de gasolina consumida
+            $formula += (($study->a3_combustionMovil * 257) /100000);
+        }
         //+ $study->a3_factor_kwh_nm3;
-        $study->carbon_footprint = round($formula,2);
-        $study->save();
+
+        return round($formula,2);
     }
 }

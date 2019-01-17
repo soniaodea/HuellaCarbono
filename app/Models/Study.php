@@ -11,6 +11,7 @@ class Study extends Model
         'building_id',
         'year',
         'carbon_footprint',
+        'temporal_footprint',
         'a1_gas_natural_kwh',
         'a1_gas_natural_nm3',
         //'a1_refrigerantes',
@@ -22,9 +23,12 @@ class Study extends Model
         'a3_papel_carton_consumo_kg',
         'a3_papel_carton_residuos_kg',
         'a3_combustionMovil',
+        'a3_combustionMovilKmRecorridos',
         //'a3_factor_kwh_nm3',
     ];
-
+    protected $attributes = [
+        'a3_combustionMovilKmRecorridos'=>true,
+    ];
     public function building()
     {
         return $this->belongsTo('App\Models\Building');

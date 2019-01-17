@@ -197,24 +197,34 @@
                 <label for="a3_combustionMovil" class="col-form-label col-sm-4">Combustión móvil</label>
                 <div class="col-sm-8">
                     <div class="input-group">
-                        <input type="number" {!! $study->carbon_footprint ? "readonly" : "id=\"a3_combustionMovil\" name=\"a3_combustionMovil\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a3_combustible_automovil') ? ' is-invalid' : '' }}" value="{{ $study->a3_combustible_automovil ? $study->a3_combustible_automovil : old("a3_combustionMovil")}}">
+                        <input type="number" {!! $study->carbon_footprint ? "readonly" : "id=\"a3_combustionMovil\" name=\"a3_combustionMovil\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a3_combustionMovil') ? ' is-invalid' : '' }}" value="{{ $study->a3_combustionMovil ? $study->a3_combustionMovil : old("a3_combustionMovil")}}">
+<!--
                         <div class="input-group-append">
                             <span class="input-group-text">kilómetros recorridos</span>
                         </div>
+-->
                         @if ($errors->has('a3_combustionMovil'))
                             <div class="invalid-feedback">
                                 <strong>{{ $errors->first('a3_combustionMovil') }}</strong>
                             </div>
                         @endif
                     </div>
+                    <div>
+                        <br>
+                        <input type="radio" name="combustionType" value ="kilometros_recorridos" {{ $study->a3_combustionMovilKmRecorridos ? "checked":''}}>
+                               <span class="input-group-text"> kilómetros recorridos</span>
+                        <br> <br>
+                        <input type="radio" name="combustionType" value ="litros_consumidos" {{ $study->a3_combustionMovilKmRecorridos ? '':"checked"}}>
+                               <span class="input-group-text"> litros consumidos </span> <br>
+                    </div>
                 </div>
             </div>
-
         </div>
+
         @if (!$study->carbon_footprint)
             <input type="hidden" name="building_id" value="{{ $id }}">
             <input type="hidden" name="id" value="{{ $study->id }}">
-            <input type="submit" name="submit" value="Guardar" class="btn btn-primary"/>
+            <input type="submit" name="submit" value="Guardar borrador" class="btn btn-primary"/>
             <button type="submit" name="submit" value="calculateStudy" class="btn btn-primary">
                 Calcular <i class="fa fa-paw" aria-hidden="true" aria-label="huella"></i> de Carbono
             </button>
