@@ -61,15 +61,20 @@ class StudiesController extends Controller
          ]);
 
         $value = $this->calculateStudy($alcances);
-
+//error_log("valor calculado" + $value);
         if ('calculateStudy' == $request->input('submit')) {
-            $alcances->carbon_footprint = $value;
+            if ($value == 0) {
+                $alcances->carbon_footprint = "0.00";
+            } else {
+                $alcances->carbon_footprint = $value;
+            }
             $alcances->save();
             return redirect(route('alcancesView', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
+        } else { //Guardar borrador
+            $alcances->temporal_footprint = $value;
+            $alcances->save();
+            return redirect(route('alcancesCreate', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
         }
-        $alcances->temporal_footprint = $value;
-        $alcances->save();
-        return redirect(route('alcancesCreate', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
     }
 
     protected function alcancesValidator(array $data)

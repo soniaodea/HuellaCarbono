@@ -30,7 +30,7 @@
 
             @if($action == "create")
             <li class="nav-item">
-                <a class="nav-link{{ (empty($errors->first("inputYear")) && !Session::get("showYear")) ? " active" : "" }}" id="contact-tab" data-toggle="tab" href="#contact">
+                    <a class="nav-link{{ (empty($errors->first("inputYear")) && !Session::get("showYear")) ? " active" : "" }}" id="contact-tab" data-toggle="tab" href="#contact">
                     <i class="fa fa-plus"></i>
                     Crear nuevo
                 </a>
