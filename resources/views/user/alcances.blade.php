@@ -74,16 +74,19 @@
     </div>
 
     <script src="{{ asset("assets/js/user/studies.js") }}" defer></script>
-{{--Cuando se calculaba la huella de años anteriores a los ya existentes activaba también el último año y visualizaba su formulario
-    @if($action == "view")
-    <script type="text/javascript">
-        $(function () {
-            $("#myTab .nav-item .nav-link").last().addClass("show active");
-            $("#myTabContent .tab-pane").last().addClass("show active");
-        });
-    </script>
+
+    @if ($action == "view")
+        @if (!Session::get("showYear"))
+
+            <script type="text/javascript">
+                $(function () {
+                    $("#myTab .nav-item .nav-link").last().addClass("show active");
+                    $("#myTabContent .tab-pane").last().addClass("show active");
+                });
+            </script>
+        @endif
     @endif
---}}
+
     @if(Session::get("showYear"))
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
