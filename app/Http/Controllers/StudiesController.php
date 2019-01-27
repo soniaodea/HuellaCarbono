@@ -82,18 +82,35 @@ class StudiesController extends Controller
                  'min:'.(date('Y') - 20),
                  'max:'.date('Y'),
              ],
-             'a1_gas_natural_kwh' => 'required|numeric',
-             //'a1_gas_natural_nm3' => 'required|numeric',
-             //'a1_refrigerantes' => 'required|numeric',
-             'a1_gasoleoc' => 'required|numeric',
-             'a1_fueloleo' => 'required|numeric',
+             'a1_gas_natural_kwh' => 'nullable|numeric',
+             'a1_gasoleoc' => 'nullable|numeric',
+             'a1_fueloleo' => 'nullable|numeric',
              'a1_recarga_gases_refrigerantes' => 'required|numeric',
              'a2_electricidad_kwh' => 'required|numeric',
              'a3_agua_potable_m3' => 'nullable|numeric',
              'a3_papel_carton_consumo_kg' => 'nullable|numeric',
              'a3_papel_carton_residuos_kg' => 'nullable|numeric',
-            // 'a3_factor_kwh_nm3' => 'required|numeric',
          ]);
+
+/*
+        $validator = Validator::make($data, [
+            'building_id' => 'required',
+            'year' => [
+                'required',
+                'numeric',
+                'min:'.(date('Y') - 20),
+                'max:'.date('Y'),
+            ],
+            'a1_gas_natural_kwh' => 'required_unless:a1_gasoleoc,filled,a1_fueloleo,filled|numeric',
+            'a1_gasoleoc' => 'required_unless:a1_gas_natural_kwh,filled,a1_fueloleo,filled|numeric',
+            'a1_fueloleo' => 'required_unless:a1_gas_natural_kwh,filled,a1_gasoleoc,filled|numeric',
+            'a1_recarga_gases_refrigerantes' => 'required|numeric',
+            'a2_electricidad_kwh' => 'required|numeric',
+            'a3_agua_potable_m3' => 'nullable|numeric',
+            'a3_papel_carton_consumo_kg' => 'nullable|numeric',
+            'a3_papel_carton_residuos_kg' => 'nullable|numeric',
+        ]);
+*/
         // validate year field (create)
         $validator->sometimes('year', Rule::unique('studies')->where('building_id', $data['building_id']), function ($input) {
             return empty($input->id);
@@ -114,7 +131,6 @@ class StudiesController extends Controller
         $formula =
             //$study->a1_gas_natural_kwh +
             (($study->a1_gas_natural_nm3 * 210) / 100000)
-            //+ $study->a1_refrigerantes
             + (($study->a1_gasoleoc * 285) / 100000)
             + (($study->a1_fueloleo * 239) / 100000)
             + $study->a1_recarga_gases_refrigerantes
@@ -129,7 +145,6 @@ class StudiesController extends Controller
         else { //Litros de gasolina consumida
             $formula += (($study->a3_combustionMovil * 257) /100000);
         }
-        //+ $study->a3_factor_kwh_nm3;
 
         return round($formula,2);
     }

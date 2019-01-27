@@ -5,6 +5,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function formSubmit(e) {
+    if (this.value == "Guardar borrador") {
+        if ((document.getElementById("a1_gn").value == "") &&
+            (document.getElementById("a1_gc").value == "") &&
+            (document.getElementById("a1_fo").value == "")) {
+            e.stopPropagation();
+            e.preventDefault();
+            swal("Dato no insertado", "Es imprescindible insertar uno de los siguientes datos: gas natural, gasoleoc o fueloleo", "info");
+        }
+    }
+
     if (this.value == "calculateStudy" && e.isTrusted) {
         let btn = this;
         e.stopPropagation();

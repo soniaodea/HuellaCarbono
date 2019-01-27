@@ -14,7 +14,6 @@ class Study extends Model
         'temporal_footprint',
         'a1_gas_natural_kwh',
         'a1_gas_natural_nm3',
-        //'a1_refrigerantes',
         'a1_gasoleoc',
         'a1_fueloleo',
         'a1_recarga_gases_refrigerantes',
@@ -24,10 +23,11 @@ class Study extends Model
         'a3_papel_carton_residuos_kg',
         'a3_combustionMovil',
         'a3_combustionMovilKmRecorridos',
-        //'a3_factor_kwh_nm3',
+
     ];
     protected $attributes = [
-        'a3_combustionMovilKmRecorridos'=>true,
+        'a3_combustionMovilKmRecorridos'=>true, //default value
+        'a2_electricidad_kwh'=>0, //default value
     ];
     public function building()
     {

@@ -71,8 +71,8 @@
             </div>
             @endif
         </div>
-
     </div>
+
     <script src="{{ asset("assets/js/user/studies.js") }}" defer></script>
 
     @if($action == "view")
