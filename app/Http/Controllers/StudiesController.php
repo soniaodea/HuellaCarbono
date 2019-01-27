@@ -85,7 +85,7 @@ class StudiesController extends Controller
              'a1_gas_natural_kwh' => 'nullable|numeric',
              'a1_gasoleoc' => 'nullable|numeric',
              'a1_fueloleo' => 'nullable|numeric',
-             'a1_recarga_gases_refrigerantes' => 'required|numeric',
+             'a1_recarga_gases_refrigerantes' => 'nullable|numeric',
              'a2_electricidad_kwh' => 'required|numeric',
              'a3_agua_potable_m3' => 'nullable|numeric',
              'a3_papel_carton_consumo_kg' => 'nullable|numeric',

@@ -87,7 +87,7 @@
                 <div class="col-sm-8">
                     <div class="input-group">
                        {{-- <input type="number" required {!! $study->carbon_footprint ? "readonly" : "id=\"a1_recarga_gases_refrigerantes\" name=\"a1_recarga_gases_refrigerantes\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_recarga_gases_refrigerantes') ? ' is-invalid' : '' }}" value="{{ $study->a1_recarga_gases_refrigerantes ? $study->a1_recarga_gases_refrigerantes : old("a1_recarga_gases_refrigerantes")}}"> --}}
-                        <input type="number" required {!! $study->carbon_footprint ? "readonly" : "id=\"a1_recarga_gases_refrigerantes\" name=\"a1_recarga_gases_refrigerantes\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_recarga_gases_refrigerantes') ? ' is-invalid' : '' }}" value="{{ $study->a1_recarga_gases_refrigerantes ? $study->a1_recarga_gases_refrigerantes : old("a1_recarga_gases_refrigerantes")}}">
+                        <input type="number"  {!! $study->carbon_footprint ? "readonly" : "id=\"a1_recarga_gases_refrigerantes\" name=\"a1_recarga_gases_refrigerantes\"" !!} class="form-control{{ !$study->carbon_footprint && $errors->has('a1_recarga_gases_refrigerantes') ? ' is-invalid' : '' }}" value="{{ $study->a1_recarga_gases_refrigerantes ? $study->a1_recarga_gases_refrigerantes : old("a1_recarga_gases_refrigerantes")}}">
                         <div class="input-group-append">
                             <span class="input-group-text">kg</span>
                         </div>
