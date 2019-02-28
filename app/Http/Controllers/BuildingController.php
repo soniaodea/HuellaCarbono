@@ -35,13 +35,9 @@ class BuildingController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:35',
-            //'surface' => 'required|numeric|max:10000',
-            'surface' => 'nullable|numeric|max:10000',
-            //'description' => 'nullable|string',
+            'surface' => 'required|numeric',
             'country_id' => 'required|exists:countries,id',
             'region_id' => 'required|exists:regions,id',
-            //'postcode' => 'required|numeric|max:99999',
-            //'address' => 'required|string',
         ]);
     }
 
@@ -176,7 +172,7 @@ class BuildingController extends Controller
         }
     }
 
-    public function showStats($id = null)
+    public function showStats($type, $id = null)
     {
         if (!$id) {
             $buildings = Auth::user()->buildings;
@@ -188,6 +184,6 @@ class BuildingController extends Controller
             }
         }
 
-        return view('building.stats', ['buildings' => $buildings, 'year' => date('Y')]);
+        return view('building.stats', ['buildings' => $buildings, 'year' => date('Y'), 'type' => $type]);
     }
 }

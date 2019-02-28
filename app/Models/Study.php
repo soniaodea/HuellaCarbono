@@ -19,10 +19,10 @@ class Study extends Model
         'a1_recarga_gases_refrigerantes',
         'a2_electricidad_kwh',
         'a3_agua_potable_m3',
-        'a3_papel_carton_consumo_kg',
+        'a3_papel_carton_consumo_kg', //Ya no se ofrece, se podría eliminar y volver a migrar la bd
         'a3_papel_carton_residuos_kg',
-        'a3_combustionMovil',
-        'a3_combustionMovilKmRecorridos',
+        'a3_combustionMovil',             //numeric
+        'a3_combustionMovilKmRecorridos', //Boolean
 
     ];
     protected $attributes = [

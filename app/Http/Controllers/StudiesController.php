@@ -53,7 +53,7 @@ class StudiesController extends Controller
              'a1_recarga_gases_refrigerantes' => $request->a1_recarga_gases_refrigerantes, //TODO Sonia: Cambiar nombre a recarga aire acondicionado
              'a2_electricidad_kwh' => $request->a2_electricidad_kwh,
              'a3_agua_potable_m3' => $request->a3_agua_potable_m3,
-             'a3_papel_carton_consumo_kg' => $request->a3_papel_carton_consumo_kg,
+             //'a3_papel_carton_consumo_kg' => $request->a3_papel_carton_consumo_kg,
              'a3_papel_carton_residuos_kg' => $request->a3_papel_carton_residuos_kg,
              'a3_combustionMovil' => $request->a3_combustionMovil,
              'a3_combustionMovilKmRecorridos' => $kmRecorridos,
@@ -87,14 +87,16 @@ class StudiesController extends Controller
                  'min:'.(date('Y') - 20),
                  'max:'.date('Y'),
              ],
-             'a1_gas_natural_kwh' => 'nullable|numeric',
-             'a1_gasoleoc' => 'nullable|numeric',
-             'a1_fueloleo' => 'nullable|numeric',
-             'a1_recarga_gases_refrigerantes' => 'nullable|numeric',
-             'a2_electricidad_kwh' => 'required|numeric',
-             'a3_agua_potable_m3' => 'nullable|numeric',
-             'a3_papel_carton_consumo_kg' => 'nullable|numeric',
-             'a3_papel_carton_residuos_kg' => 'nullable|numeric',
+             //'a1_gas_natural_kwh' => 'nullable|numeric',
+             'a1_gas_natural_kwh' => 'nullable|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+             'a1_gasoleoc' => 'nullable|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+             'a1_fueloleo' => 'nullable|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+             'a1_recarga_gases_refrigerantes' => 'nullable|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+             'a2_electricidad_kwh' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+             'a3_agua_potable_m3' => 'nullable|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+             //'a3_papel_carton_consumo_kg' => 'nullable|numeric',
+             'a3_papel_carton_residuos_kg' => 'nullable|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'a3_combustionMovil' => 'nullable|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
          ]);
 
 /*
@@ -141,7 +143,7 @@ class StudiesController extends Controller
             + $study->a1_recarga_gases_refrigerantes
             + (($study->a2_electricidad_kwh * 36) /100000)
             + (($study->a3_agua_potable_m3 * 344) /100000)
-            + (($study->a3_papel_carton_consumo_kg))
+            //+ (($study->a3_papel_carton_consumo_kg))
             + (($study->a3_papel_carton_residuos_kg * 21) /100000);
 
         if ($study->a3_combustionMovilKmRecorridos) {

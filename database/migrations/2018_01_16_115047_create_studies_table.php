@@ -25,7 +25,7 @@ class CreateStudiesTable extends Migration
             $table->string('a1_recarga_gases_refrigerantes')->nullable();
             $table->string('a2_electricidad_kwh')->nullable();
             $table->string('a3_agua_potable_m3')->nullable();
-            $table->string('a3_papel_carton_consumo_kg')->nullable();
+            $table->string('a3_papel_carton_consumo_kg')->nullable();  //Ya no se ofrece, se puede eliminar
             $table->string('a3_papel_carton_residuos_kg')->nullable();
             $table->integer('a3_combustionMovil')->nullable();
             $table->timestamps();

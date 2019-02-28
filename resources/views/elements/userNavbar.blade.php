@@ -1,4 +1,5 @@
 <i class="fa fa-bars fa-2x toggle-btn" id="toggleNav"></i>
+
 <script type="text/javascript">
     $(function (){
         let $userNav = $(".nav-side-menu");
@@ -29,27 +30,118 @@
                     <i class="fa fa-user fa-lg"></i> Perfil
                 </a>
             </li>
+           <li data-toggle="collapse" data-target="#service" class="collapsed">
 
+                <a href="{{ URL::route('building') }}">
+                    <i class="fa fa-globe fa-lg"></i> Edificios
+                </a>
+           </li>
 
-            <li data-toggle="collapse" data-target="#service" class="collapsed">
-                <a href="{{ URL::route('building') }}"><i class="fa fa-globe fa-lg"></i> Edificios</a>
-            </li>
-
-            <li data-toggle="collapse" data-target="#stats" class="collapsed">
+           <li data-toggle="collapse" data-target="#stats" class="collapsed">
                 <a href="#"><i class="fa fa-bar-chart fa-lg"></i>  Estadísticas <span class="arrow"></span></a>
-            </li>
-            <ul class="sub-menu collapse" id="stats">
-                <a href="{{ route("building.stats") }}">
-                    <li>Todos los edificios</li>
+           </li>
+           <ul class="sub-menu collapse" id="stats">
+               <a href="#">
+                   <li data-toggle="collapse" data-target="#elemsAll" class="collapsed">
+                        Todos los edificios <span class="arrow"></span>
+                   </li>
+               </a>
+               <ul class="sub-menu collapse" id="elemsAll">
+                    <a href="{{ route("building.stats", ["type" => 'Huella de Carbono']) }}">
+                       <li style="color: #31b0d5">Huella de Carbono</li>
+                    </a>
+                   <a href="{{ route("building.stats", ["type" => 'Gas Natural']) }}">
+                       <li style="color: #31b0d5">Gas Natural</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'GasoleoC']) }}">
+                       <li style="color: #31b0d5">GasoleoC</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Fueloleo']) }}">
+                       <li style="color: #31b0d5">Fueloleo</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Aire Acondicionado']) }}">
+                       <li style="color: #31b0d5">Aire Acondicionado</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Electricidad']) }}">
+                       <li style="color: #31b0d5">Electricidad</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Agua Potable']) }}">
+                       <li style="color: #31b0d5">Agua Potable</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Papel y Carton']) }}">
+                       <li style="color: #31b0d5">Papel y Carton</li>
+                   </a>
+
+                 {{--
+                     Para ofrecer estas dos gráficas hay que diferenciar en la tabla Study (modelo y migración(add)) los valores para
+                     litrosConsumidos y kmRecorridos.
+                     Flujo de ejecución: web.php -> BuildingController.php -> resources/views/building/stats.blade.php
+                     Cambios a realizar sólo en stats.blade.php para añadir nombre del campo que falta. Resto ya preparado para responder a esta petición
+
+                   <a href="{{ route("building.stats", ["type" => 'Combustion en Litros Consumidos']) }}">
+                       <li style="color: #31b0d5">Combustión en Litros Consumidos</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Combustion en Kilometros Recorridos']) }}">
+                       <li style="color: #31b0d5">Combustión en Kilómetros Recorridos</li>
+                   </a>
+                 --}}
+
+               </ul>
+
+
+               @foreach(Auth::user()->buildings as $building)
+                <a href="#">
+                    <li data-toggle="collapse" data-target="#elems{{ $building->name }}" class="collapsed">
+                        {{ $building->name }}  <span class="arrow"></span>
+                    </li>
                 </a>
-                @foreach(Auth::user()->buildings as $building)
-                <a href="{{ route("building.stats", ["id" => $building->id]) }}">
-                    <li>{{ $building->name }}</li>
-                </a>
-                @endforeach
-            </ul>
+                <ul class="sub-menu collapse" id="elems{{ $building->name }}">
+                   <a href="{{ route("building.stats", ["type" => 'Huella de Carbono',"id" => $building->id]) }}">
+                       <li style="color: #31b0d5">Huella de Carbono</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Gas Natural', "id" => $building->id]) }}">
+                        <li style="color: #31b0d5">Gas Natural</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'GasoleoC', "id" => $building->id]) }}">
+                        <li style="color: #31b0d5">GasoleoC</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Fueloleo', "id" => $building->id]) }}">
+                        <li style="color: #31b0d5">Fueloleo</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Aire Acondicionado', "id" => $building->id]) }}">
+                        <li style="color: #31b0d5">Aire Acondicionado</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Electricidad', "id" => $building->id]) }}">
+                        <li style="color: #31b0d5">Electricidad</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Agua Potable', "id" => $building->id]) }}">
+                        <li style="color: #31b0d5">Agua Potable</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Papel y Carton', "id" => $building->id]) }}">
+                        <li style="color: #31b0d5">Papel y Carton</li>
+                   </a>
+
+                {{--
+                     Para ofrecer estas dos gráficas hay que diferenciar en la tabla Study (modelo y migración(add)) los valores para
+                     litrosConsumidos y kmRecorridos.
+                     Flujo web.php -> BuildingController.php -> resources/views/building/stats.blade.php
+                     Cambios a realizar sólo en stats.blade.php para añadir nombre del campo que falta. Resto ya preparado para responder a esta petición
+
+                   <a href="{{ route("building.stats", ["type" => 'Combustion móvil en Litros Consumidos', "id" => $building->id]) }}">
+                        <li style="color: #31b0d5">Combustión en Litros Consumidos</li>
+                   </a>
+                   <a href="{{ route("building.stats", ["type" => 'Combustion en Kilometros Recorridos', "id" => $building->id]) }}">
+                        <li style="color: #31b0d5">Combustión en Kilómetros Recorridos</li>
+                   </a>
+                 --}}
+
+                </ul>
+               @endforeach
+           </ul>
 
         </ul>
+
+
         <ul class="menu-content bottom">
             <li>
                 <a href="{{ route("user.tutorial") }}">

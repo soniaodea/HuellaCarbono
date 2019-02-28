@@ -63,7 +63,7 @@ Route::post('alcances', 'StudiesController@alcances')->name('alcances');
 // building routes
 Route::prefix('building')->group(function () {
     Route::get('/', 'BuildingController@showBuildings')->name('building');
-    Route::get('stats/{id?}', 'BuildingController@showStats')->name('building.stats');
+    Route::get('stats/{type}/{id?}', 'BuildingController@showStats')->name('building.stats');
 
     // building management
     Route::post('add', 'BuildingController@addBuilding')->name('building.add');
