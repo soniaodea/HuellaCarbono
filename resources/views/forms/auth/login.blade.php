@@ -32,7 +32,17 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">
-        Iniciar Sesión
-    </button>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+            Iniciar Sesión
+        </button>
+    </div>
+
+    <div class="form-group">
+        <p>
+           ¿Se te ha olvidado la contraseña? </br>
+           <a href="password/reset">Recuperar contraseña</a>
+        </p>
+    </div>
+
 </form>
