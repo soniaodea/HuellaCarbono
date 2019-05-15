@@ -29,11 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.className = "bg-danger";
         swal({
             title: "Adblock detectado",
-            text: "Hemos detectado que estás navegando con un bloqueador de publicidad, desactivalo para poder seguir navegando en la web.",
+            text: @lang("Hemos detectado que estás navegando con un bloqueador de publicidad, desactivalo para poder seguir navegando en la web."),
             icon: "{{ asset("assets/img/noAdb.png") }}",
             dangerMode: true,
             buttons: {
-                "confirm": "Lo he desactivado",
+                "confirm": @lang("Desactivado"),
             }
         }).then(function () {
             location.reload();

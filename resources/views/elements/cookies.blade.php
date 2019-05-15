@@ -15,9 +15,9 @@
                 }
             },
             "content": {
-                "message": "Utilizamos cookies para proporcionar una mejor experiencia web, si continuas navengando entendemos que aceptas la utilización de las mismas.",
-                "dismiss": "Entendido",
-                "link": "Más información",
+                "message": @lang("Utilizamos cookies para proporcionar una mejor experiencia web, si continuas navengando entendemos que aceptas la utilización de las mismas."),
+                "dismiss": @lang("Entendido"),
+                "link": @lang("Más información"),
                 "href": "{{ route("termsOfService") }}"
             },
             "showLink": true,

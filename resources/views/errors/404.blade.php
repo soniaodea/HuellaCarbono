@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section("title", "Página no encontrada")
+@section("title", @lang("Página no encontrada"))
 
 @section("content")
     <div class="container d-flex justify-content-center align-items-center error">
@@ -13,12 +13,12 @@
             </section>
 
             <h2 class="text-center">
-                La página solicitada no ha sido encontrada
+                @lang("La página solicitada no ha sido encontrada")
             </h2>
             <p class="text-center">
                 <a href="{{ route("landing") }}" class="btn btn-lg btn-outline-primary">
                     <i class="fa fa-home"></i>
-                    Volver a inicio
+                    @lang("Volver a inicio")
                 </a>
             </p>
         </div>

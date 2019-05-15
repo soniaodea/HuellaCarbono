@@ -19,6 +19,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+
+Route::get('lang/{locale}', 'LocalizationController@index')->name('lang');
+
+//Route::get('lang', 'LocalizationController@index')->name('lang');
+
 Route::get('/logout', "Auth\LoginController@logout");
 
 Route::get('/email/confim/{token}', "Auth\RegisterController@verifyEmail")->name('registerEmailConfirmation');
@@ -84,3 +89,5 @@ Route::prefix('profile')->group(function () {
 Route::get('/tutorial', 'BuildingController@showTutorial')->name('user.tutorial');
 
 Route::post('gitPull', 'GithubWebhoockController@pull');
+
+

@@ -2,7 +2,7 @@
     {{ csrf_field() }}
 
     <div class="form-group row">
-        <label for="currentPassword" class="col-form-label col-sm-4" >Contraseña actual</label>
+        <label for="currentPassword" class="col-form-label col-sm-4" >@lang("Contraseña actual")</label>
         <div class="col-sm-8">
             <input type="password" id="currentPassword" name="currentPassword" class="form-control{{ $errors->has('currentPassword') ? ' is-invalid' : '' }}" autofocus>
 
@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="newPassword" class="col-form-label col-sm-4" >Nueva contraseña</label>
+        <label for="newPassword" class="col-form-label col-sm-4" >@lang("Nueva contraseña")</label>
         <div class="col-sm-8">
             <input type="password" id="newPassword" name="newPassword" class="form-control{{ $errors->has('newPassword') ? ' is-invalid' : '' }}">
 
@@ -28,7 +28,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="newPassword_confirmation" class="col-form-label col-sm-4" >Confirmar nueva contraseña</label>
+        <label for="newPassword_confirmation" class="col-form-label col-sm-4" >@lang("Confirmar nueva contraseña")</label>
         <div class="col-sm-8">
             <input type="password" id="newPassword_confirmation" name="newPassword_confirmation" class="form-control{{ $errors->has('newPassword_confirmation') ? ' is-invalid' : '' }}">
 
@@ -42,6 +42,6 @@
 
     <button type="submit" class="btn btn-primary">
         <i class="fa fa-key"></i>
-        Cambiar contraseña
+        @lang("Cambiar contraseña")
     </button>
 </form>

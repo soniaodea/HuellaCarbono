@@ -44,6 +44,8 @@ class StudiesController extends Controller
              'building_id' => $request->building_id,
              'year' => $request->year,
          ], [
+             'numperson' => $request->numperson,
+             'hours' => $request->hours,
              'a1_gas_natural_kwh' => $request->a1_gas_natural_kwh,
              //Realizamos la conversión de kwh a nm3 (a 1nm3 le corresponde 11.7kwh) para aplicar posteriormente a nm3 el factor en el cálculo de la huella
              'a1_gas_natural_nm3' => ($request->a1_gas_natural_kwh/11.7),
@@ -65,13 +67,27 @@ class StudiesController extends Controller
         if ('calculateStudy' == $request->input('submit')) {
             if ($value == 0) {
                 $alcances->carbon_footprint = "0.00";
+                $alcances->carbon_footprintnumperson = "0.00";
+                $alcances->carbon_footprinthours = "0.00";
             } else {
                 $alcances->carbon_footprint = $value;
+                if ($request->numperson > 0) {
+                    $alcances->carbon_footprintnumperson = $value / $request->numperson;
+                }
+                if ($request->hours > 0) {
+                    $alcances->carbon_footprinthours = $value / $request->hours;
+                }
             }
             $alcances->save();
             return redirect(route('alcancesView', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
         } else { //Guardar borrador
             $alcances->temporal_footprint = $value;
+            if ($request->numperson > 0) {
+                $alcances->temporal_footprintnumperson = $value / $request->numperson;
+            }
+            if ($request->hours > 0) {
+                $alcances->temporal_footprinthours = $value / $request->hours;
+            }
             $alcances->save();
             return redirect(route('alcancesCreate', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
         }
@@ -87,6 +103,8 @@ class StudiesController extends Controller
                  'min:'.(date('Y') - 20),
                  'max:'.date('Y'),
              ],
+             'numperson' => 'required|numeric',
+             'hours' => 'required|numeric',
              //'a1_gas_natural_kwh' => 'nullable|numeric',
              'a1_gas_natural_kwh' => 'nullable|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
              'a1_gasoleoc' => 'nullable|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',

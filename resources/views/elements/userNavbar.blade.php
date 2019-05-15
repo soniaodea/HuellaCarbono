@@ -27,49 +27,49 @@
         <ul id="menu-content" class="menu-content collapse out">
             <li>
                 <a href="{{ route("user.profile") }}">
-                    <i class="fa fa-user fa-lg"></i> Perfil
+                    <i class="fa fa-user fa-lg"></i> @lang("Perfil")
                 </a>
             </li>
            <li data-toggle="collapse" data-target="#service" class="collapsed">
 
                 <a href="{{ URL::route('building') }}">
-                    <i class="fa fa-globe fa-lg"></i> Edificios
+                    <i class="fa fa-globe fa-lg"></i> @lang("Edificios")
                 </a>
            </li>
 
            <li data-toggle="collapse" data-target="#stats" class="collapsed">
-                <a href="#"><i class="fa fa-bar-chart fa-lg"></i>  Estadísticas <span class="arrow"></span></a>
+                <a href="#"><i class="fa fa-bar-chart fa-lg"></i>  @lang("Estadísticas") <span class="arrow"></span></a>
            </li>
            <ul class="sub-menu collapse" id="stats">
                <a href="#">
                    <li data-toggle="collapse" data-target="#elemsAll" class="collapsed">
-                        Todos los edificios <span class="arrow"></span>
+                        @lang("Todos los edificios") <span class="arrow"></span>
                    </li>
                </a>
                <ul class="sub-menu collapse" id="elemsAll">
                     <a href="{{ route("building.stats", ["type" => 'Huella de Carbono']) }}">
-                       <li style="color: #31b0d5">Huella de Carbono</li>
+                       <li style="color: #31b0d5">@lang("Huella de Carbono")</li>
                     </a>
                    <a href="{{ route("building.stats", ["type" => 'Gas Natural']) }}">
-                       <li style="color: #31b0d5">Gas Natural</li>
+                       <li style="color: #31b0d5">@lang("Gas Natural")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'GasoleoC']) }}">
-                       <li style="color: #31b0d5">GasoleoC</li>
+                       <li style="color: #31b0d5">@lang("GasoleoC")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Fueloleo']) }}">
-                       <li style="color: #31b0d5">Fueloleo</li>
+                       <li style="color: #31b0d5">@lang("Fueloleo")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Aire Acondicionado']) }}">
-                       <li style="color: #31b0d5">Aire Acondicionado</li>
+                       <li style="color: #31b0d5">@lang("Aire Acondicionado")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Electricidad']) }}">
-                       <li style="color: #31b0d5">Electricidad</li>
+                       <li style="color: #31b0d5">@lang("Electricidad")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Agua Potable']) }}">
-                       <li style="color: #31b0d5">Agua Potable</li>
+                       <li style="color: #31b0d5">@lang("Agua Potable")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Papel y Carton']) }}">
-                       <li style="color: #31b0d5">Papel y Carton</li>
+                       <li style="color: #31b0d5">@lang("Papel y Carton")</li>
                    </a>
 
                  {{--
@@ -97,28 +97,28 @@
                 </a>
                 <ul class="sub-menu collapse" id="elems{{ $building->name }}">
                    <a href="{{ route("building.stats", ["type" => 'Huella de Carbono',"id" => $building->id]) }}">
-                       <li style="color: #31b0d5">Huella de Carbono</li>
+                       <li style="color: #31b0d5">@lang("Huella de Carbono")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Gas Natural', "id" => $building->id]) }}">
-                        <li style="color: #31b0d5">Gas Natural</li>
+                        <li style="color: #31b0d5">@lang("Gas Natural")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'GasoleoC', "id" => $building->id]) }}">
-                        <li style="color: #31b0d5">GasoleoC</li>
+                        <li style="color: #31b0d5">@lang("GasoleoC")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Fueloleo', "id" => $building->id]) }}">
-                        <li style="color: #31b0d5">Fueloleo</li>
+                        <li style="color: #31b0d5">@lang("Fueloleo")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Aire Acondicionado', "id" => $building->id]) }}">
-                        <li style="color: #31b0d5">Aire Acondicionado</li>
+                        <li style="color: #31b0d5">@lang("Aire Acondicionado")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Electricidad', "id" => $building->id]) }}">
-                        <li style="color: #31b0d5">Electricidad</li>
+                        <li style="color: #31b0d5">@lang("Electricidad")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Agua Potable', "id" => $building->id]) }}">
-                        <li style="color: #31b0d5">Agua Potable</li>
+                        <li style="color: #31b0d5">@lang("Agua Potable")</li>
                    </a>
                    <a href="{{ route("building.stats", ["type" => 'Papel y Carton', "id" => $building->id]) }}">
-                        <li style="color: #31b0d5">Papel y Carton</li>
+                        <li style="color: #31b0d5">@lang("Papel y Carton")</li>
                    </a>
 
                 {{--
@@ -146,11 +146,11 @@
             <li>
                 <a href="{{ route("user.tutorial") }}">
                     <i class="fa fa-question-circle"></i>
-                    Tutorial
+                    @lang("Tutorial")
                 </a>
             </li>
             <li class="text-right pr-3" data-action="close-nav">
-                Cerrar
+                @lang("Cerrar")
                 <i class="fa fa-chevron-right"></i>
             </li>
         </ul>

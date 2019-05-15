@@ -2,7 +2,7 @@
     {{ csrf_field() }}
 
     <div class="form-group">
-        <label for="for" class="control-label">Para</label>
+        <label for="for" class="control-label">@lang("Para")</label>
 
         <input type="email" name="for" id="for" class="form-control{{ $errors->has("for") ? " is-invalid" : "" }}" value="{{ old("for") }}" readonly>
         @if ($errors->has('for'))
@@ -13,7 +13,7 @@
     </div>
 
     <div class="form-group">
-        <label for="subject" class="control-label">Asunto</label>
+        <label for="subject" class="control-label">@lang("Asunto")</label>
 
         <input type="text" name="subject" id="subject" class="form-control{{ $errors->has("subject") ? " is-invalid" : "" }}" value="{{ old("subject") }}" readonly>
         @if ($errors->has('subject'))
@@ -24,7 +24,7 @@
     </div>
 
     <div class="form-group">
-        <label for="reply" class="control-label">Mensaje</label>
+        <label for="reply" class="control-label">@lang("Mensaje")</label>
 
         <textarea name="reply" id="reply" rows="3" class="form-control{{ $errors->has("reply") ? " is-invalid" : "" }}" autofocus value="{{ old("reply") }}"></textarea>
         @if ($errors->has('reply'))
@@ -37,7 +37,7 @@
 
     <button type="submit" class="btn btn-default">
         <div class="fa fa-envelope-o"></div>
-        Enviar
+        @lang("Enviar")
     </button>
 
 </form>
@@ -48,7 +48,7 @@
         @switch(Request::session()->get("replyStatus"))
             @case("sent")
                 swal({
-                    title: "Respuesta enviada",
+                    title: @lang("Respuesta enviada"),
                     icon: "success",
                 });
                 @break

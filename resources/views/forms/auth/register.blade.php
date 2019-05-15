@@ -2,7 +2,7 @@
     {{ csrf_field() }}
 
     <div class="form-group">
-        <label for="name" class="col-control-label">Nombre de la organización</label>
+        <label for="name" class="col-control-label"> @lang("Nombre de la organización") </label>
 
         <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group">
-        <label for="email" class="col-control-label">E-Mail</label>
+        <label for="email" class="col-control-label">@lang("E-Mail")</label>
 
         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-group">
-        <label for="password" class="col-control-label">Contraseña</label>
+        <label for="password" class="col-control-label">@lang("Contraseña")</label>
 
         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
@@ -38,14 +38,14 @@
     </div>
 
     <div class="form-group">
-        <label for="password-confirm" class="col-control-label">Confirmar contraseña</label>
+        <label for="password-confirm" class="col-control-label">@lang("Confirmar contraseña")</label>
         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
     </div>
 
     <div class="form-check">
         <label id="terms" class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="terms" value="true" @if(old("terms")){{ 'checked' }}@endif>
-                He leído y acepto los <a href="{{ route("termsOfService") }}" target="_blank">Términos del Servicio</a>
+            <input  type="checkbox" name="terms" value="true" @if(old("terms")){{ 'checked' }}@endif>
+                @lang("He leído y acepto los") <a href="{{ route("termsOfService") }}" target="_blank"> @lang("Términos de servicio") </a>
         </label>
 
         @if ($errors->has('terms'))
@@ -58,6 +58,6 @@
     <br/>
     
     <button type="submit" class="btn btn-primary">
-        Registrarse
+        @lang("Registrarse")
     </button>
 </form>
