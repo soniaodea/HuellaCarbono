@@ -2,7 +2,7 @@
     {{ csrf_field() }}
 
     <div class="form-group">
-        <label for="email" class="col-control-label"> @lang("E-Mail") </label>
+        <label for="email" class="col-control-label"> @lang("E-mail") </label>
         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
         @if ($errors->has('email'))

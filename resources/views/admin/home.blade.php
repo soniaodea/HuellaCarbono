@@ -4,19 +4,19 @@
 
 @section("content")
     <div class="container">
-        <h3>Lista de usuarios</h3>
+        <h3>@lang("Lista de usuarios")</h3>
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr class="text-center">
                     <td>#</td>
-                    <td>Nombre</td>
-                    <td>NIF</td>
-                    <td>Teléfono</td>
-                    <td>Email</td>
-                    <td>Estado de la cuenta</td>
-                    <td>Visible para el público</td>
-                    <td>Acciones</td>
+                    <td>@lang("Nombre")</td>
+                    <td>@lang("NIF")</td>
+                    <td>@lang("Teléfono")</td>
+                    <td>@lang("E-mail")</td>
+                    <td>@lang("Estado de la cuenta")</td>
+                    <td>@lang("Visible para el público")</td>
+                    <td>@lang("Acciones")</td>
                 </tr>
             </thead>
             <tbody>
@@ -50,16 +50,16 @@
                         </td>
                         <td class="verified" data-verified="{{ $user->verified ? "1" : "0"}}">
                             @if($user->verified)
-                            <span class="text-success">Verificada</span>
+                            <span class="text-success">@lang("Verificada")</span>
                             @else
-                            <span class="text-danger">No verificada</span>
+                            <span class="text-danger">@lang("No Verificada")</span>
                             @endif
                         </td>
                         <td>
                             @if($user->publicViewable)
-                            <span class="text-success">Si</span>
+                            <span class="text-success">@lang("Si")</span>
                             @else
-                            <span class="text-danger">No</span>
+                            <span class="text-danger">@lang("No")</span>
                             @endif
                         </td>
                         <td>
@@ -80,7 +80,7 @@
                 @else
                     <tr>
                         <td colspan="8" class="text-center text-info">
-                            No existe ningún usuario registrado
+                            @lang("No existe ningún usuario registrado")
                         </td>
                     </tr>
                 @endif
@@ -91,8 +91,8 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Editar Usuario</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span   aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">@lang("Editar Usuario")</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label=@lang("Cerrar")><span   aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         @include("forms.admin.editUser")

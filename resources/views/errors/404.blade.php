@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section("title", @lang("Página no encontrada"))
+@section("title", "Página no encontrada")
 
 @section("content")
     <div class="container d-flex justify-content-center align-items-center error">

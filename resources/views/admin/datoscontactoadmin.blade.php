@@ -4,16 +4,16 @@
 
 @section("content")
     <div class="container">
-        <h3>Mensajes de usuarios</h3>
+        <h3>@lang("Mensajes de usuarios")</h3>
         <hr>
         <table class="table table-bordered table-striped">
             <thead>
             <tr class="text-center">
                 <td>#</td>
-                <td>Email</td>
-                <td>Asunto</td>
-                <td>Mensaje</td>
-                <td>Acciones</td>
+                <td>@lang("E-mail")</td>
+                <td>@lang("Asunto")</td>
+                <td>@lang("Mensaje")</td>
+                <td>@lang("Acciones")</td>
             </tr>
             </thead>
             <tbody>
@@ -45,7 +45,7 @@
             @else
             <tr class="text-center text-info">
                 <td colspan="5">
-                    No se ha encontrado ningún correo
+                    @lang("No se ha encontrado ningún correo")
                 </td>
             </tr>
             @endif
@@ -57,8 +57,8 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Responder al email</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">@lang("Responder al email")</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label=@lang("Cerrar")><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     @include("forms.admin.replyMail")

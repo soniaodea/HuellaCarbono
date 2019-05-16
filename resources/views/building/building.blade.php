@@ -4,7 +4,7 @@
 
 @section("userContent")
     <div class="container">
-        <h3>Lista de Edificios</h3>
+        <h3>@lang("Lista de Edificios")</h3>
         <hr>
 
         <div class="table-responsive">
@@ -12,12 +12,12 @@
                 <thead>
                     <tr class="text-center">
                         <td class="d-none">#</td>
-                        <td>Nombre</td>
-                        <td>Superficie(m2)</td>
-                        <td class="d-none">País</td>
-                        <td>Provincia</td>
-                        <td class="d-none">Coordenadas (lat, lon)</td>
-                        <td>Acciones</td>
+                        <td>@lang("Nombre")</td>
+                        <td>@lang("Superficie(m2)")</td>
+                        <td class="d-none">@lang("País")</td>
+                        <td>@lang("Provincia")</td>
+                        <td class="d-none">@lang("Coordenadas (lat, lon)")</td>
+                        <td>@lang("Acciones")</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,9 +27,9 @@
                             <td class="id d-none">{{ $building->id }}</td>
                             <td class="name">
                                 @if (!empty($building->latitude))
-                                    <i class="fa fa-map-pin" title="Edificio con ubicación establecida"></i>
+                                    <i class="fa fa-map-pin" title=@lang("Edificio con ubicación establecida")></i>
                                 @else
-                                    <span class="fa-stack" title="Edificio sin ubicación establecida">
+                                    <span class="fa-stack" title=@lang("Edificio sin ubicación establecida")>
                                         <i class="fa fa-map-pin fa-stack-1x"></i>
                                         <i class="fa fa-ban fa-stack-2x text-danger"></i>
                                     </span>
@@ -42,19 +42,19 @@
                             <td class="coordinates d-none" data-latitude="{{ $building->latitude}}" data-longitude="{{ $building->longitude }}"></td>
                             <td>
                                 <div class="btn-group">
-                                    <a class="btn btn-secondary" href="{{ route('alcancesView', ['id' => $building->id]) }}" title="Visualizar estudios">
+                                    <a class="btn btn-secondary" href="{{ route('alcancesView', ['id' => $building->id]) }}" title=@lang("Visualizar estudios")>
                                         <fa class="fa fa-eye"></fa>
                                     </a>
-                                    <a class="btn btn-primary" href="{{ route('alcancesCreate', ['id' => $building->id]) }}" title="Gestionar alcances">
+                                    <a class="btn btn-primary" href="{{ route('alcancesCreate', ['id' => $building->id]) }}" title=@lang("Gestionar alcances")>
                                         <fa class="fa fa-paw"></fa>
                                     </a>
-                                    <button class="btn btn-info" data-action="edit" title="Editar edificio">
+                                    <button class="btn btn-info" data-action="edit" title=@lang("Editar edificio")>
                                         <fa class="fa fa-pencil"></fa>
                                     </button>
                                     <form class="d-none" action="{{ route("building.delete", ["id" => $building->id]) }}" method="post">
                                         {{ csrf_field() }}
                                     </form>
-                                    <button class="btn btn-danger" data-action="delete" title="Eliminar edificio">
+                                    <button class="btn btn-danger" data-action="delete" title=@lang("Eliminar edificio")>
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </div>
@@ -64,7 +64,7 @@
                     @else
                         <tr>
                             <td colspan="6" class="text-center text-info">
-                                No has añadido ningún edificio
+                                @lang("No has añadido ningún edificio")
                             </td>
                         </tr>
                     @endif
@@ -73,7 +73,7 @@
         </div>
 
         <button class="btn btn-default topForMobile" type="button" data-toggle="modal" data-target="#addBuildingModal">
-            Añadir edificio
+            @lang("Añadir edificio")
             <i class="fa fa-plus"></i>
         </button>
 
@@ -81,8 +81,8 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Añadir Edificio</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">@lang("Añadir edificio")</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label=@lang("Cerrar")><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         @include("forms.building.addBuilding")
@@ -95,8 +95,8 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Editar Edificio</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">@lang("Editar edificio")</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label=@lang("Cerrar")><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         @include("forms.building.editBuilding")
