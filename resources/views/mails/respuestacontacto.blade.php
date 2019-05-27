@@ -1,5 +1,5 @@
 <html>
 
-<p>Tu mensaje ha sido recibido.</p>
+<p>@lang("Tu mensaje ha sido recibido.")</p>
 
 </html>

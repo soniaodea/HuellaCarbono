@@ -1,6 +1,6 @@
 <p>{{ $reply }}</p>
 <hr>
-De: {{ $mail->email }}
+@lang("De:") {{ $mail->email }}
 <br>
-Asunto: {{ $mail->subject}}
+@lang("Asunto:") {{ $mail->subject}}
 <p>{{ $mail->message }}</p>

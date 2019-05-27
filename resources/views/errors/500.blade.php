@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section("title", "Error interno")
+@section("title", __("Error interno"))
 
 @section("content")
     <div class="container d-flex justify-content-center align-items-center error">

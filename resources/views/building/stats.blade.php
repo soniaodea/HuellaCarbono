@@ -1,10 +1,10 @@
 @extends("layouts.userHome")
 
-@section("title", "Estadísticas")
+@section("title", __("Estadísticas"))
 
 @section("userContent")
 <div class="container">
-    <h2>Gráfico {{ $type }} </h2>
+    <h2>@lang("Gráfico") {{ $type }} </h2>
     <hr>
 
     <canvas id="chart"></canvas>

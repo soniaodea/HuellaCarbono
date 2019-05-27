@@ -1,11 +1,11 @@
 @extends("layouts.userHome")
 
-@section("title", "Cambiar contraseña")
+@section("title", __("Cambiar contraseña"))
 
 @section("userContent")
 
     <div class="container">
-        <h2>Cambiar contraseña</h2>
+        <h2>@lang("Cambiar contraseña")</h2>
         <hr>
 
         @if(session()->has("changed"))

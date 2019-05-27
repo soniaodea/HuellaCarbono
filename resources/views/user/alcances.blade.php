@@ -1,6 +1,6 @@
 @extends("layouts.userHome")
 
-@section("title", (($action == "view") ? "Visualización" : "Gestión") . " de alcances")
+@section("title", (($action == "view") ? __("Visualización de Alcances") : __("Gestión de Alcances")))
 
 @section("userContent")
 
@@ -11,9 +11,9 @@
                 <li class="nav-item">
                     <a class="nav-link{{ ($errors->first("inputYear") == $study->year || Session::get("showYear") == $study->year) ? " active" : "" }}" id="study-{{ $study->year }}-tab" data-toggle="tab" href="#study-{{ $study->year }}">
                         @if($study->carbon_footprint)
-                        <i class="fa fa-paw" title="Huella calculada"></i>
+                        <i class="fa fa-paw" title=@lang("Huella calculada")></i>
                         @else
-                        <i class="fa fa-exclamation-triangle text-warning" title="Huella no calculada"></i>
+                        <i class="fa fa-exclamation-triangle text-warning" title=@lang("Huella no calculada")></i>
                         @endif
                         {{ $study->year }}
                     </a>
@@ -22,8 +22,8 @@
             @elseif(count($studies) == 0 && $action == "view")
             <li class="nav-item">
                 <a class="nav-link active">
-                    <i class="fa fa-exclamation-triangle text-warning" title="Huella no calculada"></i>
-                    Sin alcances
+                    <i class="fa fa-exclamation-triangle text-warning" title=@lang("Huella no calculada")></i>
+                    @lang("Sin alcances")
                 </a>
             </li>
             @endif
@@ -32,7 +32,7 @@
             <li class="nav-item">
                     <a class="nav-link{{ (empty($errors->first("inputYear")) && !Session::get("showYear")) ? " active" : "" }}" id="contact-tab" data-toggle="tab" href="#contact">
                     <i class="fa fa-plus"></i>
-                    Crear nuevo
+                    @lang("Crear nuevo")
                 </a>
             </li>
             @endif
@@ -45,14 +45,14 @@
                     @if(!$study->carbon_footprint)
                     <div class="alert alert-warning">
                         <i class="fa fa-exclamation-triangle"></i>
-                        Cálculo del borrador de la huella de carbono {{ $study->temporal_footprint }} tCO<sub>2</sub>e <br/>
-                        <strong>¡Atención!</strong>
-                        Confirme los datos y pulse sobre el botón "calcular huella de carbono". <br/>
-                        Una vez calculada la huella definitivamente NO se podrán volver a editar sus valores.
+                        @lang("Cálculo del borrador de la huella de carbono") {{ $study->temporal_footprint }} tCO<sub>2</sub>e <br/>
+                        <strong>@lang("¡Atención!")</strong>
+                        @lang("Confirme los datos y pulse sobre el botón Calcular Huella de Carbono.") <br/>
+                        @lang("Una vez calculada la huella definitivamente NO se podrán volver a editar sus valores.")
                     </div>
                     @else
                     <div class="alert alert-info">
-                        <strong><i class="fa fa-paw"></i></strong> Valor de la huella, {{ $study->carbon_footprint }} tCO<sub>2</sub>e
+                        <strong><i class="fa fa-paw"></i></strong> @lang("Valor de la huella:") {{ $study->carbon_footprint }} tCO<sub>2</sub>e
                     </div>
                     @endif
 
@@ -61,7 +61,7 @@
                 @endforeach
             @elseif(count($studies) == 0 && $action == "view")
             <p>
-                No se ha encontrado ningún alcance finalizado, <a href="{{ route("alcancesCreate", ["id" => $id]) }}">acceder al panel de gestión</a>.
+                @lang("No se ha encontrado ningún alcance finalizado,") <a href="{{ route("alcancesCreate", ["id" => $id]) }}">@lang("acceder al panel de gestión")</a>.
             </p>
             @endif
 
@@ -92,7 +92,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             swal({
                 icon: "success",
-                title: "Datos guardados",
+                title: @lang("Datos guardados"),
                 text: " ",
                 timer: 1500,
                 buttons: false

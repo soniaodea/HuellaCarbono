@@ -47,7 +47,7 @@ function createBuildingsList() {
     document.getElementById("map").insertAdjacentElement("afterbegin", buildingsList);
 
     let title = document.createElement("h3");
-    title.innerText = "Edificios ";
+    title.innerText = "";
     title.className = "text-center";
     buildingsList.insertAdjacentElement("beforeend", title);
 

@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section("title", "Registro")
+@section("title", __("Registro"))
 
 @section("content")
     <div class="container">

@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section("title", "Terminos del Servicio")
+@section("title", __("Términos de servicio"))
 
 @section("content")
 

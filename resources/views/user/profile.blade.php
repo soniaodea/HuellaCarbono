@@ -1,11 +1,11 @@
 @extends("layouts.userHome")
 
-@section("title", "Mi Perfil")
+@section("title", __("Mi perfil"))
 
 @section("userContent")
 
     <div class="container">
-        <h2>Mi perfil</h2>
+        <h2>@lang("Mi perfil")</h2>
         <hr>
         
         @include("forms.user.profile")
