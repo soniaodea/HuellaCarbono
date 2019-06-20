@@ -100,8 +100,8 @@
   "Combustión móvil": "Errekuntza mugikorra",
   "kilómetros recorridos": "egindako kilometroak",
   "litros consumidos": "kontsumitutako litroak",
-  "Guardar borrador": "Txantiloia gorde",
-  "Calcular": "Kalkulatu karbono",
+  "Guardar borrador": "Zirriborroa gorde",
+  "Calcular": "Kalkulatu Aztarna",
   "Contraseña actual": "Egungo gakoa",
   "Nueva contraseña": "Gako berria",
   "Confirmar nueva contraseña": "Gako berria baieztatu",
@@ -195,12 +195,11 @@
   "Una vez calculada la huella definitivamente NO se podrán volver a editar sus valores.": "Karbono Aztarna behin betikoz kalkulatu ondoren EZINGO DIRA bere balioak aldatu.",
   "Valor absoluto de la huella:": "Aztarnaren balio absolutoa:",
   "Valor de la huella por persona:": "Aztarnaren balioa pertsoneko:",
-  "Valor de la huellapor hora:": "Aztarnaren balioa orduko:",
+  "Valor de la huella por hora:": "Aztarnaren balioa orduko:",
   "No se ha encontrado ningún alcance finalizado,": "Ez da topatu amaiturik dagoen irismenik,",
   "acceder al panel de gestión": "sartu kudeaketa panelean",
   "Datos guardados": "Datuak gordeta",
   "Visualización de Alcances": "Irismenen Ikuskatzea",
   "Gestión de Alcances": "Irismen Kudeaketa",
-  "Edificios": "Eraikinak",
-  "Estadísticas": "Estatistikak"
+  "Confirmación de cálculo": "Kalkuluaren baieztapena"
 }

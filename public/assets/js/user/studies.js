@@ -21,12 +21,12 @@ function formSubmit(e) {
         e.preventDefault();
 
         swal({
-            "title": "Confirmación de calculo",
-            "text": "Una vez realizado el calculo no podrás realizar cambios, ¿estás seguro?",
+            "title": "Confirmación de cálculo",
+            "text": "Una vez realizado el cálculo no podrás realizar cambios, ¿estás seguro?",
             "icon": "info",
             buttons: {
                 "cancel": "Cancelar",
-                "confirm": "Continuar con el calculo",
+                "confirm": "Continuar con el cálculo",
             }
 
         }).then(function (isConfirm) {

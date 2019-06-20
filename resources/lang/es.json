@@ -199,12 +199,11 @@
   "Una vez calculada la huella definitivamente NO se podrán volver a editar sus valores.": "Una vez calculada la huella definitivamente NO se podrán volver a editar sus valores.",
   "Valor absoluto de la huella:": "Valor absoluto de la huella:",
   "Valor de la huella por persona:": "Valor de la huella por persona:",
-  "Valor de la huellapor hora:": "Valor de la huella por hora:",
+  "Valor de la huella por hora:": "Valor de la huella por hora:",
   "No se ha encontrado ningún alcance finalizado,": "No se ha encontrado ningún alcance finalizado,",
   "acceder al panel de gestión": "acceder al panel de gestión",
   "Datos guardados": "Datos guardados",
   "Visualización de Alcances": "Visualización de Alcances",
   "Gestión de Alcances": "Gestión de Alcances",
-  "Edificios": "Edificios",
-  "Estadísticas": "Estadísticas"
+  "Confirmación de cálculo": "Confirmación de cálculo"
 }
