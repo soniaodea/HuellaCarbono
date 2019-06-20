@@ -52,7 +52,9 @@
                     </div>
                     @else
                     <div class="alert alert-info">
-                        <strong><i class="fa fa-paw"></i></strong> @lang("Valor de la huella:") {{ $study->carbon_footprint }} tCO<sub>2</sub>e
+                        <strong><i class="fa fa-paw"></i></strong> @lang("Valor absoluto de la huella:") {{ $study->carbon_footprint }} tCO<sub>2</sub>e</br>
+                        <strong><i class="fa fa-paw"></i></strong> @lang("Valor de la huella por persona:") {{ $study->carbon_footprintnumperson }} tCO<sub>2</sub>e</br>
+                        <strong><i class="fa fa-paw"></i></strong> @lang("Valor de la huella por hora:") {{ $study->carbon_footprinthours }} tCO<sub>2</sub>e
                     </div>
                     @endif
 

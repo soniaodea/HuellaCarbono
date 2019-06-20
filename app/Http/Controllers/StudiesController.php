@@ -72,10 +72,10 @@ class StudiesController extends Controller
             } else {
                 $alcances->carbon_footprint = $value;
                 if ($request->numperson > 0) {
-                    $alcances->carbon_footprintnumperson = $value / $request->numperson;
+                    $alcances->carbon_footprintnumperson = round($value / $request->numperson, 2);
                 }
                 if ($request->hours > 0) {
-                    $alcances->carbon_footprinthours = $value / $request->hours;
+                    $alcances->carbon_footprinthours = round($value / $request->hours,2);
                 }
             }
             $alcances->save();
@@ -83,10 +83,10 @@ class StudiesController extends Controller
         } else { //Guardar borrador
             $alcances->temporal_footprint = $value;
             if ($request->numperson > 0) {
-                $alcances->temporal_footprintnumperson = $value / $request->numperson;
+                $alcances->temporal_footprintnumperson = round($value / $request->numperson, 2);
             }
             if ($request->hours > 0) {
-                $alcances->temporal_footprinthours = $value / $request->hours;
+                $alcances->temporal_footprinthours = round($value / $request->hours,2);
             }
             $alcances->save();
             return redirect(route('alcancesCreate', ['id' => $request->building_id]))->with(['showYear' => $request->year]);
